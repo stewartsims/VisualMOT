@@ -1,0 +1,8 @@
+C:\Users\Stewart\Documents\VisualMOT\VisualMOT\VisualMOT\bin\Debug\netstandard2.0\VisualMOT.deps.json
+C:\Users\Stewart\Documents\VisualMOT\VisualMOT\VisualMOT\bin\Debug\netstandard2.0\VisualMOT.dll
+C:\Users\Stewart\Documents\VisualMOT\VisualMOT\VisualMOT\obj\Debug\netstandard2.0\VisualMOT.csprojAssemblyReference.cache
+C:\Users\Stewart\Documents\VisualMOT\VisualMOT\VisualMOT\obj\Debug\netstandard2.0\App.xaml.g.cs
+C:\Users\Stewart\Documents\VisualMOT\VisualMOT\VisualMOT\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
+C:\Users\Stewart\Documents\VisualMOT\VisualMOT\VisualMOT\obj\Debug\netstandard2.0\VisualMOT.AssemblyInfoInputs.cache
+C:\Users\Stewart\Documents\VisualMOT\VisualMOT\VisualMOT\obj\Debug\netstandard2.0\VisualMOT.AssemblyInfo.cs
+C:\Users\Stewart\Documents\VisualMOT\VisualMOT\VisualMOT\obj\Debug\netstandard2.0\MOTHistoryPage.xaml.g.cs

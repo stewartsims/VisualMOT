@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="VisualMOT.MainPage">
+
+    <StackLayout x:Name="Container">
+        <!-- Place new controls here -->
+        <Label Text="Welcome to Visual MOT" 
+           HorizontalOptions="Center"
+           VerticalOptions="CenterAndExpand" />
+        <Label Text="To get started enter the vehicle reg. below" 
+               VerticalOptions="CenterAndExpand"
+               HorizontalOptions="Center" />
+        <Entry Placeholder="AB12 XYZ" Text="{Binding VehicleRegistration}" />
+        <Button Text="Continue"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="Center"
+                Clicked="Button_Clicked" />
+        
+    </StackLayout>
+
+</ContentPage>
