@@ -1,0 +1,487 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:combobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"
+             mc:Ignorable="d"
+             x:Class="VisualMOT.EntryPage">
+    <ContentPage.Resources>
+        <x:Array x:Key="Makes" Type="{x:Type sys:String}">
+            <sys:String>ABARTH</sys:String>
+            <sys:String>AC</sys:String>
+            <sys:String>AC (ELECTRIC)</sys:String>
+            <sys:String>ACCESS</sys:String>
+            <sys:String>ACURA</sys:String>
+            <sys:String>ADLY</sys:String>
+            <sys:String>ADRIA</sys:String>
+            <sys:String>AEON</sys:String>
+            <sys:String>AGRIFAC</sys:String>
+            <sys:String>AIE</sys:String>
+            <sys:String>AIXAM</sys:String>
+            <sys:String>AJS</sys:String>
+            <sys:String>ALBION</sys:String>
+            <sys:String>ALFA ROMEO</sys:String>
+            <sys:String>ALL WHEEL DRIVE</sys:String>
+            <sys:String>ALPINA</sys:String>
+            <sys:String>ALPINE</sys:String>
+            <sys:String>AM GENERAL</sys:String>
+            <sys:String>APPLIED SWEEPER</sys:String>
+            <sys:String>APRILIA</sys:String>
+            <sys:String>ARIEL</sys:String>
+            <sys:String>ARTEGA</sys:String>
+            <sys:String>ASIA</sys:String>
+            <sys:String>ASQUITH</sys:String>
+            <sys:String>ASTON MARTIN</sys:String>
+            <sys:String>ATALA</sys:String>
+            <sys:String>AUDI</sys:String>
+            <sys:String>AUSTIN</sys:String>
+            <sys:String>AUSTIN HEALEY</sys:String>
+            <sys:String>AUSTIN MORRIS</sys:String>
+            <sys:String>AUSTIN-MORRIS</sys:String>
+            <sys:String>AVANTI</sys:String>
+            <sys:String>AVELING BARFORD</sys:String>
+            <sys:String>AVTOVAZ</sys:String>
+            <sys:String>BAJAJ</sys:String>
+            <sys:String>BAROSSA</sys:String>
+            <sys:String>BASHAN</sys:String>
+            <sys:String>BATTISTINIS</sys:String>
+            <sys:String>BEAUFORD</sys:String>
+            <sys:String>BEDFORD</sys:String>
+            <sys:String>BELARUS</sys:String>
+            <sys:String>BENELLI</sys:String>
+            <sys:String>BENFORD</sys:String>
+            <sys:String>BENTLEY</sys:String>
+            <sys:String>BENYE</sys:String>
+            <sys:String>BETA</sys:String>
+            <sys:String>BIMOTA</sys:String>
+            <sys:String>BMC</sys:String>
+            <sys:String>BMW</sys:String>
+            <sys:String>BOB CAT</sys:String>
+            <sys:String>BOMAG</sys:String>
+            <sys:String>BOMBARDIER</sys:String>
+            <sys:String>BOND</sys:String>
+            <sys:String>BONSER</sys:String>
+            <sys:String>BRA</sys:String>
+            <sys:String>BRANSON</sys:String>
+            <sys:String>BREMACH</sys:String>
+            <sys:String>BRISTOL</sys:String>
+            <sys:String>BRISTOL (BLMC)</sys:String>
+            <sys:String>BRONTO</sys:String>
+            <sys:String>BSA</sys:String>
+            <sys:String>BTM</sys:String>
+            <sys:String>BUGATTI</sys:String>
+            <sys:String>BUICK</sys:String>
+            <sys:String>BULTACO</sys:String>
+            <sys:String>CADILLAC</sys:String>
+            <sys:String>CAETANO</sys:String>
+            <sys:String>CAGIVA</sys:String>
+            <sys:String>CAN-AM</sys:String>
+            <sys:String>CAPRI</sys:String>
+            <sys:String>CARBODIES</sys:String>
+            <sys:String>CASAL</sys:String>
+            <sys:String>CASE</sys:String>
+            <sys:String>CASE INTERNATIONAL</sys:String>
+            <sys:String>CATERHAM</sys:String>
+            <sys:String>CATERPILLAR</sys:String>
+            <sys:String>CCM</sys:String>
+            <sys:String>CF MOTO</sys:String>
+            <sys:String>CHEVROLET</sys:String>
+            <sys:String>CHEVROLET GMC</sys:String>
+            <sys:String>CHRYSLER</sys:String>
+            <sys:String>CIMOTORHOME</sys:String>
+            <sys:String>CITROEN</sys:String>
+            <sys:String>CLAAS</sys:String>
+            <sys:String>CLARK</sys:String>
+            <sys:String>CLASSIC CUSTOM</sys:String>
+            <sys:String>CLASSIC REPLICAS</sys:String>
+            <sys:String>COLEMAN MILNE</sys:String>
+            <sys:String>COLT</sys:String>
+            <sys:String>COMMER</sys:String>
+            <sys:String>CORVETTE</sys:String>
+            <sys:String>COSSACK</sys:String>
+            <sys:String>COUNTY COMM CARS</sys:String>
+            <sys:String>COVENTRY CLIMAX</sys:String>
+            <sys:String>CPI</sys:String>
+            <sys:String>CUPRA</sys:String>
+            <sys:String>CZ</sys:String>
+            <sys:String>DACIA</sys:String>
+            <sys:String>DAEWOO</sys:String>
+            <sys:String>DAF</sys:String>
+            <sys:String>DAF TRUCKS</sys:String>
+            <sys:String>DAIHATSU</sys:String>
+            <sys:String>DAIMLER</sys:String>
+            <sys:String>DAIMLER CHRYSLER</sys:String>
+            <sys:String>DATSUN</sys:String>
+            <sys:String>DAVID BROWN</sys:String>
+            <sys:String>DAX</sys:String>
+            <sys:String>DE TOMASO</sys:String>
+            <sys:String>DEMM</sys:String>
+            <sys:String>DENNIS</sys:String>
+            <sys:String>DERBI</sys:String>
+            <sys:String>DFSK</sys:String>
+            <sys:String>DINLI</sys:String>
+            <sys:String>DODGE</sys:String>
+            <sys:String>DODGE (USA)</sys:String>
+            <sys:String>DOUGLAS</sys:String>
+            <sys:String>DS</sys:String>
+            <sys:String>DUCATI</sys:String>
+            <sys:String>DUKAR</sys:String>
+            <sys:String>EAGLE</sys:String>
+            <sys:String>EASY RIDER</sys:String>
+            <sys:String>EBRO</sys:String>
+            <sys:String>ELECTRICARS</sys:String>
+            <sys:String>ENFIELD</sys:String>
+            <sys:String>EOS</sys:String>
+            <sys:String>ERF</sys:String>
+            <sys:String>ETON</sys:String>
+            <sys:String>EUCLID</sys:String>
+            <sys:String>EVT</sys:String>
+            <sys:String>FACTORY</sys:String>
+            <sys:String>FARBOUD</sys:String>
+            <sys:String>FENDT</sys:String>
+            <sys:String>FERRARI</sys:String>
+            <sys:String>FIAT</sys:String>
+            <sys:String>FODEN</sys:String>
+            <sys:String>FORD</sys:String>
+            <sys:String>FORD</sys:String>
+            <sys:String>FORD NEW HOLLAND</sys:String>
+            <sys:String>FORDSON</sys:String>
+            <sys:String>FOREST RIVER</sys:String>
+            <sys:String>FREIGHT ROVER</sys:String>
+            <sys:String>FSO CARS</sys:String>
+            <sys:String>GARELLI</sys:String>
+            <sys:String>GAS GAS</sys:String>
+            <sys:String>GAZ</sys:String>
+            <sys:String>GEELY</sys:String>
+            <sys:String>GEM</sys:String>
+            <sys:String>GENERAL MOTORS</sys:String>
+            <sys:String>GIBBS TECHNOLOGIES</sys:String>
+            <sys:String>GILERA</sys:String>
+            <sys:String>GINETTA</sys:String>
+            <sys:String>GOKA</sys:String>
+            <sys:String>GORDON MURRAY</sys:String>
+            <sys:String>GREAT WALL</sys:String>
+            <sys:String>GRINNALL</sys:String>
+            <sys:String>GROVE COLES</sys:String>
+            <sys:String>GSMOON</sys:String>
+            <sys:String>GUMPERT</sys:String>
+            <sys:String>GUY</sys:String>
+            <sys:String>HARBILT ELECTRIC</sys:String>
+            <sys:String>HARLEY-DAVIDSON</sys:String>
+            <sys:String>HILLMAN</sys:String>
+            <sys:String>HINO</sys:String>
+            <sys:String>HOLDEN</sys:String>
+            <sys:String>HONDA</sys:String>
+            <sys:String>HUMBER</sys:String>
+            <sys:String>HUMMER</sys:String>
+            <sys:String>HY-MAC LTD</sys:String>
+            <sys:String>HYMER</sys:String>
+            <sys:String>HYSTER</sys:String>
+            <sys:String>HYUNDAI</sys:String>
+            <sys:String>IBC</sys:String>
+            <sys:String>INFINITI</sys:String>
+            <sys:String>INT. HARVESTER</sys:String>
+            <sys:String>INVACAR</sys:String>
+            <sys:String>IRISBUS</sys:String>
+            <sys:String>ISEKI</sys:String>
+            <sys:String>ISUZU</sys:String>
+            <sys:String>ISUZU TRUCKS</sys:String>
+            <sys:String>ITALJET</sys:String>
+            <sys:String>IVECO</sys:String>
+            <sys:String>IVECO FORD</sys:String>
+            <sys:String>IVECO-FORD</sys:String>
+            <sys:String>JAGUAR</sys:String>
+            <sys:String>JAGUAR LAND ROVER</sys:String>
+            <sys:String>JAMES</sys:String>
+            <sys:String>JAWA</sys:String>
+            <sys:String>JCB</sys:String>
+            <sys:String>JEEP</sys:String>
+            <sys:String>JENSEN</sys:String>
+            <sys:String>JIALING</sys:String>
+            <sys:String>JOHN ALLEN</sys:String>
+            <sys:String>JOHN DEERE</sys:String>
+            <sys:String>JOHNSTON SWEEPERS</sys:String>
+            <sys:String>JONWAY</sys:String>
+            <sys:String>JORDAN</sys:String>
+            <sys:String>KAISAR</sys:String>
+            <sys:String>KANUNI</sys:String>
+            <sys:String>KARRIER</sys:String>
+            <sys:String>KASEA</sys:String>
+            <sys:String>KAWASAKI</sys:String>
+            <sys:String>KIA</sys:String>
+            <sys:String>KINETIC</sys:String>
+            <sys:String>KINGTON</sys:String>
+            <sys:String>KINROAD</sys:String>
+            <sys:String>KOENIGSEGG</sys:String>
+            <sys:String>KOMATSU</sys:String>
+            <sys:String>KTM</sys:String>
+            <sys:String>KUBOTA</sys:String>
+            <sys:String>KYMCO</sys:String>
+            <sys:String>LADA</sys:String>
+            <sys:String>LAMBORGHINI</sys:String>
+            <sys:String>LAMBRETTA</sys:String>
+            <sys:String>LANCIA</sys:String>
+            <sys:String>LAND ROVER</sys:String>
+            <sys:String>LANSING LINDE</sys:String>
+            <sys:String>LAVERDA</sys:String>
+            <sys:String>LDV</sys:String>
+            <sys:String>LEVC</sys:String>
+            <sys:String>LEXMOTO</sys:String>
+            <sys:String>LEXUS</sys:String>
+            <sys:String>LEYLAND</sys:String>
+            <sys:String>LEYLAND AEC</sys:String>
+            <sys:String>LEYLAND AM</sys:String>
+            <sys:String>LEYLAND CARS</sys:String>
+            <sys:String>LEYLAND DAF</sys:String>
+            <sys:String>LEYLAND NATIONAL</sys:String>
+            <sys:String>LEYLAND REDLINE</sys:String>
+            <sys:String>LEYLAND SCOTSTOUN</sys:String>
+            <sys:String>LIEBHERR</sys:String>
+            <sys:String>LIFAN-HONGDA</sys:String>
+            <sys:String>LIGIER</sys:String>
+            <sys:String>LINCOLN</sys:String>
+            <sys:String>LINER</sys:String>
+            <sys:String>LINHAI</sys:String>
+            <sys:String>LONCIN</sys:String>
+            <sys:String>LONDON TAXIS</sys:String>
+            <sys:String>LONDON TAXIS INT.</sys:String>
+            <sys:String>LONSDALE</sys:String>
+            <sys:String>LOTUS</sys:String>
+            <sys:String>LUEGO</sys:String>
+            <sys:String>MAGIRUS DEUTZ</sys:String>
+            <sys:String>MAGYAR SUZUKI</sys:String>
+            <sys:String>MAHINDRA</sys:String>
+            <sys:String>MALAGUTI</sys:String>
+            <sys:String>MAN</sys:String>
+            <sys:String>MAN/VW</sys:String>
+            <sys:String>MANITOU</sys:String>
+            <sys:String>MARCOS</sys:String>
+            <sys:String>MARSHALL</sys:String>
+            <sys:String>MASERATI</sys:String>
+            <sys:String>MASSEY FERGUSON</sys:String>
+            <sys:String>MATBRO</sys:String>
+            <sys:String>MATCHLESS</sys:String>
+            <sys:String>MAXUS</sys:String>
+            <sys:String>MAYBACH</sys:String>
+            <sys:String>MAZDA</sys:String>
+            <sys:String>MBK</sys:String>
+            <sys:String>MCC</sys:String>
+            <sys:String>MCLAREN</sys:String>
+            <sys:String>MCW</sys:String>
+            <sys:String>MERCEDES</sys:String>
+            <sys:String>MERCEDES BENZ</sys:String>
+            <sys:String>MERCEDES-BENZ</sys:String>
+            <sys:String>MERCURY</sys:String>
+            <sys:String>METROCAB</sys:String>
+            <sys:String>MG</sys:String>
+            <sys:String>MG XPOWER</sys:String>
+            <sys:String>MIA</sys:String>
+            <sys:String>MICROCAR</sys:String>
+            <sys:String>MIG</sys:String>
+            <sys:String>MINI</sys:String>
+            <sys:String>MITSUBISHI</sys:String>
+            <sys:String>MITSUBISHI FUSO</sys:String>
+            <sys:String>MK SPORTSCARS</sys:String>
+            <sys:String>MOBILVETTA</sys:String>
+            <sys:String>MOBYLETTE</sys:String>
+            <sys:String>MODEC</sys:String>
+            <sys:String>MODENA DESIGN</sys:String>
+            <sys:String>MOKE AUTOMIBILI</sys:String>
+            <sys:String>MONTESA</sys:String>
+            <sys:String>MORGAN</sys:String>
+            <sys:String>MORINI</sys:String>
+            <sys:String>MORRIS</sys:String>
+            <sys:String>MOSKVICH</sys:String>
+            <sys:String>MOTO GUZZI</sys:String>
+            <sys:String>MOTO ROMA</sys:String>
+            <sys:String>MOTOBECANE</sys:String>
+            <sys:String>MUIR-HILL</sys:String>
+            <sys:String>MZ</sys:String>
+            <sys:String>NEOPLAN</sys:String>
+            <sys:String>NEVAL</sys:String>
+            <sys:String>NEW HOLLAND</sys:String>
+            <sys:String>NILSSON</sys:String>
+            <sys:String>NISSAN</sys:String>
+            <sys:String>NISSAN</sys:String>
+            <sys:String>NOBLE</sys:String>
+            <sys:String>NOBLE AUTOMOTIVE</sys:String>
+            <sys:String>NORTON</sys:String>
+            <sys:String>NSU</sys:String>
+            <sys:String>NUFFIELD</sys:String>
+            <sys:String>OLDSMOBILE</sys:String>
+            <sys:String>OPEL</sys:String>
+            <sys:String>OPTARE</sys:String>
+            <sys:String>OTHER AGRIC/CONSTRUCTIONAL</sys:String>
+            <sys:String>OTHER BRITISH</sys:String>
+            <sys:String>OTHER COUNTRIES</sys:String>
+            <sys:String>OTHER EAST EUROPEAN</sys:String>
+            <sys:String>OTHER ELECTRIC</sys:String>
+            <sys:String>OTHER FRENCH</sys:String>
+            <sys:String>OTHER GERMAN</sys:String>
+            <sys:String>OTHER ITALIAN</sys:String>
+            <sys:String>OTHER JAPANESE/ASIAN</sys:String>
+            <sys:String>OTHER US/AUST/CAN</sys:String>
+            <sys:String>OTHER WEST EUROPEAN</sys:String>
+            <sys:String>OTHER/COMMERCIAL/THORNEYCROFT</sys:String>
+            <sys:String>PANTHER</sys:String>
+            <sys:String>PEGASO</sys:String>
+            <sys:String>PERODUA</sys:String>
+            <sys:String>PEROUA</sys:String>
+            <sys:String>PEUGEOT</sys:String>
+            <sys:String>PGO</sys:String>
+            <sys:String>PIAGGIO</sys:String>
+            <sys:String>PILGRIM</sys:String>
+            <sys:String>PINZGAUER</sys:String>
+            <sys:String>PLYMOUTH</sys:String>
+            <sys:String>POCLAIN</sys:String>
+            <sys:String>POLARIS</sys:String>
+            <sys:String>POLESTAR</sys:String>
+            <sys:String>POLSKI-FIAT</sys:String>
+            <sys:String>PONTIAC</sys:String>
+            <sys:String>POR</sys:String>
+            <sys:String>PORSCHE</sys:String>
+            <sys:String>PRAGA</sys:String>
+            <sys:String>PROTON</sys:String>
+            <sys:String>PUCH</sys:String>
+            <sys:String>PULSE</sys:String>
+            <sys:String>QUADZILLA</sys:String>
+            <sys:String>R-VISION</sys:String>
+            <sys:String>RALEIGH</sys:String>
+            <sys:String>RANSOME</sys:String>
+            <sys:String>REGENT</sys:String>
+            <sys:String>RELIANT</sys:String>
+            <sys:String>RENAULT</sys:String>
+            <sys:String>RENAULT TRUCKS</sys:String>
+            <sys:String>REVA</sys:String>
+            <sys:String>REWACO</sys:String>
+            <sys:String>RILEY</sys:String>
+            <sys:String>RIS BUS</sys:String>
+            <sys:String>ROADLESS</sys:String>
+            <sys:String>ROBIN HOOD</sys:String>
+            <sys:String>ROLLS ROYCE</sys:String>
+            <sys:String>ROVER</sys:String>
+            <sys:String>RUF</sys:String>
+            <sys:String>SAAB</sys:String>
+            <sys:String>SACHS</sys:String>
+            <sys:String>SAME</sys:String>
+            <sys:String>SAN</sys:String>
+            <sys:String>SANTANA</sys:String>
+            <sys:String>SANYANG</sys:String>
+            <sys:String>SAO</sys:String>
+            <sys:String>SATURN</sys:String>
+            <sys:String>SAVIEM</sys:String>
+            <sys:String>SAXON</sys:String>
+            <sys:String>SCAMMELL</sys:String>
+            <sys:String>SCANIA</sys:String>
+            <sys:String>SCORPA</sys:String>
+            <sys:String>SCUTUM</sys:String>
+            <sys:String>SD</sys:String>
+            <sys:String>SEAT</sys:String>
+            <sys:String>SECMA</sys:String>
+            <sys:String>SEDDON/ATKINSON</sys:String>
+            <sys:String>SFM</sys:String>
+            <sys:String>SFMM</sys:String>
+            <sys:String>SIMCA</sys:String>
+            <sys:String>SINGER</sys:String>
+            <sys:String>SITCAR</sys:String>
+            <sys:String>SKODA</sys:String>
+            <sys:String>SKYWIND</sys:String>
+            <sys:String>SMART</sys:String>
+            <sys:String>SMC</sys:String>
+            <sys:String>SMITHS</sys:String>
+            <sys:String>SPYKER</sys:String>
+            <sys:String>SSANGYONG</sys:String>
+            <sys:String>STEYR</sys:String>
+            <sys:String>STOTHERT AND PITT</sys:String>
+            <sys:String>STRATHCARRON</sys:String>
+            <sys:String>STUART TAYLOR</sys:String>
+            <sys:String>SUBARU</sys:String>
+            <sys:String>SUKIDA</sys:String>
+            <sys:String>SUNBEAM</sys:String>
+            <sys:String>SUNLIGHT</sys:String>
+            <sys:String>SUPERBYKE</sys:String>
+            <sys:String>SUZUKI</sys:String>
+            <sys:String>SYM</sys:String>
+            <sys:String>TALBOT</sys:String>
+            <sys:String>TATA</sys:String>
+            <sys:String>TESLA</sys:String>
+            <sys:String>TGB</sys:String>
+            <sys:String>THINK</sys:String>
+            <sys:String>THINK GLOBAL</sys:String>
+            <sys:String>THWAITES</sys:String>
+            <sys:String>TIANJIN</sys:String>
+            <sys:String>TIGER</sys:String>
+            <sys:String>TIPPEN DELTA</sys:String>
+            <sys:String>TOMOS</sys:String>
+            <sys:String>TOYOTA</sys:String>
+            <sys:String>TRANSBUS INT</sys:String>
+            <sys:String>TRIGANO</sys:String>
+            <sys:String>TRIUMPH</sys:String>
+            <sys:String>TVR</sys:String>
+            <sys:String>UAZ</sys:String>
+            <sys:String>UM</sys:String>
+            <sys:String>UMM</sys:String>
+            <sys:String>UNIVERSAL</sys:String>
+            <sys:String>URBAN</sys:String>
+            <sys:String>URSUS</sys:String>
+            <sys:String>VALMET</sys:String>
+            <sys:String>VANDEN PLAS</sys:String>
+            <sys:String>VAUXHALL</sys:String>
+            <sys:String>VDL</sys:String>
+            <sys:String>VELOCETTE</sys:String>
+            <sys:String>VENTUI</sys:String>
+            <sys:String>VENTURI</sys:String>
+            <sys:String>VESPA (DOUGLAS)</sys:String>
+            <sys:String>VINTAGE</sys:String>
+            <sys:String>VOLGA</sys:String>
+            <sys:String>VOLKSWAGEN</sys:String>
+            <sys:String>VOLKSWAGEN  COMM</sys:String>
+            <sys:String>VOLVO</sys:String>
+            <sys:String>VOXAN</sys:String>
+            <sys:String>W+E</sys:String>
+            <sys:String>WACKER NEUSON</sys:String>
+            <sys:String>WARTBURG</sys:String>
+            <sys:String>WEIDEMANN</sys:String>
+            <sys:String>WESTFIELD</sys:String>
+            <sys:String>WHITLOCK BROS</sys:String>
+            <sys:String>WIESMANN</sys:String>
+            <sys:String>WINGET</sys:String>
+            <sys:String>WOLSELEY</sys:String>
+            <sys:String>X-BOW</sys:String>
+            <sys:String>XINLING</sys:String>
+            <sys:String>XINTIAN</sys:String>
+            <sys:String>YALE</sys:String>
+            <sys:String>YAMAHA</sys:String>
+            <sys:String>YAMOZO</sys:String>
+            <sys:String>YUAN</sys:String>
+            <sys:String>ZASTAVA</sys:String>
+            <sys:String>ZENOS</sys:String>
+            <sys:String>ZETOR</sys:String>
+            <sys:String>ZHENHUA</sys:String>
+            <sys:String>ZINGYUE</sys:String>
+        </x:Array>
+    </ContentPage.Resources>
+    <StackLayout x:Name="Container">
+        <!-- Place new controls here -->
+        <Label Text="Welcome to Visual MOT" 
+           HorizontalOptions="Center"
+           VerticalOptions="CenterAndExpand" />
+        <Label Text="To get started enter the vehicle reg. below" 
+               VerticalOptions="CenterAndExpand"
+               HorizontalOptions="Center" />
+        <Entry Placeholder="A123 XYZ" TextChanged="Entry_TextChanged" />
+        <Label Text="Make of vehicle" 
+               VerticalOptions="CenterAndExpand"
+               HorizontalOptions="Center" />
+        <combobox:SfComboBox x:Name="VehicleMakeComboBox" BackgroundColor="#FFFFFF" HeightRequest="40" MaximumDropDownHeight="200" 
+                                     IsEditableMode="true" DataSource="{StaticResource Makes}" SelectionChanged="VehicleMakeComboBox_SelectionChanged"  />
+        <Button Text="Continue"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="Center"
+                Clicked="Button_Clicked" />
+        
+    </StackLayout>
+
+</ContentPage>

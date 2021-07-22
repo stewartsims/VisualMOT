@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Visual MOT Test Results</title>
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+
+        h1 {
+            color: #CE5937;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="welcome">Visual MOT Test Results</h1>
+    <p>{make} {model}, Registration: {registration}</p>
+    <h2>Result: <span style="color: green">PASS</span></h2>
+    <table>
+        <tr>
+            <th width="10%">Severity</th>
+            <th width="40%">Description</th>
+            <th width="50%">Image</th>
+        </tr>
+        <tr>
+            <td>{severity}</td>
+            <td>{description}</td>
+            <td><img src="cid:{image}"></td>
+        </tr>
+    </table>
+    <p>MOT Test Number: {number}</p>
+    <p>Milage: {mileage}</p>
+    <p>Expiry Date: {expiry}</p>
+</body>
+</html>

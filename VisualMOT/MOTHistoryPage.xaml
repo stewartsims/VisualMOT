@@ -8,7 +8,7 @@
              mc:Ignorable="d"
              x:Class="VisualMOT.MOTHistoryPage">
 
-    <StackLayout>
+    <StackLayout x:Name="Container">
         <StackLayout Orientation="Horizontal">
             <Label Text="{Binding registration}" />
             <Label Text="{Binding make}" />
@@ -18,14 +18,34 @@
             <Label Text="Last test: "/>
             <Label Text="{Binding LastTestDisplayText }" />
         </StackLayout>
-        <syncfusion:SfListView x:Name="ItemsListView">
-            <syncfusion:SfListView.DataSource>
-                <data:DataSource>
-                    <data:DataSource.GroupDescriptors>
-                        <data:GroupDescriptor PropertyName="type"/>
-                    </data:DataSource.GroupDescriptors>
-                </data:DataSource>
-            </syncfusion:SfListView.DataSource>
-        </syncfusion:SfListView>
+        <ScrollView>
+            <syncfusion:SfListView x:Name="ItemsListView" ItemsSource="{Binding MOTItems}" SelectionChanged="ItemsListView_SelectionChanged" SelectionMode="Single" ItemSize="200">
+                <syncfusion:SfListView.DataSource>
+                    <data:DataSource>
+                        <data:DataSource.GroupDescriptors>
+                            <data:GroupDescriptor PropertyName="type"/>
+                        </data:DataSource.GroupDescriptors>
+                    </data:DataSource>
+                </syncfusion:SfListView.DataSource>
+                <syncfusion:SfListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="0.4*" />
+                                <RowDefinition Height="0.6*" />
+                            </Grid.RowDefinitions>
+                            <Label Text="{Binding text}" />
+                            <Image Source="{Binding imageSource}" />
+                        </Grid>
+                    </DataTemplate>
+                </syncfusion:SfListView.ItemTemplate>
+            </syncfusion:SfListView>
+        </ScrollView>
+        <StackLayout>
+            <Button Text="Send"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="Center"
+                Clicked="Button_Clicked" />
+        </StackLayout>
     </StackLayout>
 </ContentPage>

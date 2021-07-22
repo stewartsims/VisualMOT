@@ -4,6 +4,7 @@ using System.Linq;
 
 using Foundation;
 using Syncfusion.ListView.XForms.iOS;
+using Syncfusion.XForms.iOS.ComboBox;
 using UIKit;
 
 namespace VisualMOT.iOS
@@ -24,6 +25,7 @@ namespace VisualMOT.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
+            SfComboBoxRenderer.Init();
             SfListViewRenderer.Init();
             LoadApplication(new App());
             return base.FinishedLaunching(app, options);

@@ -1,18 +1,19 @@
 {
   "version": 2,
-  "dgSpecHash": "rULwo2tn+rdP6BCCgr1sbUQghbUFdVgK57kvr8iQ8wz5Asljb6zi25Y0VnTZKFkeTFXSTYD1W4FescuqPRDLbw==",
+  "dgSpecHash": "AHowkoP1UJfVIeNmrGAMDaU7bdQjNytvt2HYQucc6gne+pUF3fSmxTIayc5Ag7eeIUGH6WE/Ypoxg9U4Aau8AA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Stewart\\Documents\\VisualMOT\\VisualMOT\\VisualMOT.Android\\VisualMOT.Android.csproj",
+  "projectFilePath": "C:\\Users\\stewa\\Documents\\Projects\\VisualMOT\\VisualMOT.Android\\VisualMOT.Android.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Stewart\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
-    "C:\\Users\\Stewart\\.nuget\\packages\\skiasharp\\2.80.2\\skiasharp.2.80.2.nupkg.sha512",
-    "C:\\Users\\Stewart\\.nuget\\packages\\syncfusion.licensing\\18.4.0.30\\syncfusion.licensing.18.4.0.30.nupkg.sha512",
-    "C:\\Users\\Stewart\\.nuget\\packages\\syncfusion.xamarin.core\\18.4.0.30\\syncfusion.xamarin.core.18.4.0.30.nupkg.sha512",
-    "C:\\Users\\Stewart\\.nuget\\packages\\syncfusion.xamarin.datasource\\18.4.0.30\\syncfusion.xamarin.datasource.18.4.0.30.nupkg.sha512",
-    "C:\\Users\\Stewart\\.nuget\\packages\\syncfusion.xamarin.gridcommon\\18.4.0.30\\syncfusion.xamarin.gridcommon.18.4.0.30.nupkg.sha512",
-    "C:\\Users\\Stewart\\.nuget\\packages\\syncfusion.xamarin.sfbusyindicator\\18.4.0.30\\syncfusion.xamarin.sfbusyindicator.18.4.0.30.nupkg.sha512",
-    "C:\\Users\\Stewart\\.nuget\\packages\\syncfusion.xamarin.sflistview\\18.4.0.30\\syncfusion.xamarin.sflistview.18.4.0.30.nupkg.sha512",
-    "C:\\Users\\Stewart\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Users\\stewa\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
+    "C:\\Users\\stewa\\.nuget\\packages\\plugin.toast\\2.2.0\\plugin.toast.2.2.0.nupkg.sha512",
+    "C:\\Users\\stewa\\.nuget\\packages\\skiasharp\\2.80.2\\skiasharp.2.80.2.nupkg.sha512",
+    "C:\\Users\\stewa\\.nuget\\packages\\syncfusion.licensing\\18.4.0.30\\syncfusion.licensing.18.4.0.30.nupkg.sha512",
+    "C:\\Users\\stewa\\.nuget\\packages\\syncfusion.xamarin.core\\18.4.0.30\\syncfusion.xamarin.core.18.4.0.30.nupkg.sha512",
+    "C:\\Users\\stewa\\.nuget\\packages\\syncfusion.xamarin.datasource\\18.4.0.30\\syncfusion.xamarin.datasource.18.4.0.30.nupkg.sha512",
+    "C:\\Users\\stewa\\.nuget\\packages\\syncfusion.xamarin.gridcommon\\18.4.0.30\\syncfusion.xamarin.gridcommon.18.4.0.30.nupkg.sha512",
+    "C:\\Users\\stewa\\.nuget\\packages\\syncfusion.xamarin.sfbusyindicator\\18.4.0.30\\syncfusion.xamarin.sfbusyindicator.18.4.0.30.nupkg.sha512",
+    "C:\\Users\\stewa\\.nuget\\packages\\syncfusion.xamarin.sfcombobox\\18.4.0.30\\syncfusion.xamarin.sfcombobox.18.4.0.30.nupkg.sha512",
+    "C:\\Users\\stewa\\.nuget\\packages\\syncfusion.xamarin.sflistview\\18.4.0.30\\syncfusion.xamarin.sflistview.18.4.0.30.nupkg.sha512",
     "C:\\Microsoft\\Xamarin\\NuGet\\xamarin.android.arch.core.common\\1.1.1.3\\xamarin.android.arch.core.common.1.1.1.3.nupkg.sha512",
     "C:\\Microsoft\\Xamarin\\NuGet\\xamarin.android.arch.core.runtime\\1.1.1.3\\xamarin.android.arch.core.runtime.1.1.1.3.nupkg.sha512",
     "C:\\Microsoft\\Xamarin\\NuGet\\xamarin.android.arch.lifecycle.common\\1.1.1.3\\xamarin.android.arch.lifecycle.common.1.1.1.3.nupkg.sha512",
@@ -50,10 +51,20 @@
     "C:\\Microsoft\\Xamarin\\NuGet\\xamarin.android.support.vector.drawable\\28.0.0.3\\xamarin.android.support.vector.drawable.28.0.0.3.nupkg.sha512",
     "C:\\Microsoft\\Xamarin\\NuGet\\xamarin.android.support.versionedparcelable\\28.0.0.3\\xamarin.android.support.versionedparcelable.28.0.0.3.nupkg.sha512",
     "C:\\Microsoft\\Xamarin\\NuGet\\xamarin.android.support.viewpager\\28.0.0.3\\xamarin.android.support.viewpager.28.0.0.3.nupkg.sha512",
-    "C:\\Microsoft\\Xamarin\\NuGet\\xamarin.essentials\\1.3.1\\xamarin.essentials.1.3.1.nupkg.sha512",
-    "C:\\Microsoft\\Xamarin\\NuGet\\xamarin.forms\\4.5.0.495\\xamarin.forms.4.5.0.495.nupkg.sha512"
+    "C:\\Microsoft\\Xamarin\\NuGet\\xamarin.essentials\\1.5.3.2\\xamarin.essentials.1.5.3.2.nupkg.sha512",
+    "C:\\Users\\stewa\\.nuget\\packages\\xamarin.forms\\4.5.0.495\\xamarin.forms.4.5.0.495.nupkg.sha512"
   ],
   "logs": [
+    {
+      "code": "NU1605",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Detected package downgrade: Xamarin.Forms from 4.5.0.617 to 4.5.0.495. Reference the package directly from the project to select a different version. \r\n VisualMOT.Android -> Syncfusion.Xamarin.SfComboBox 18.4.0.30 -> Xamarin.Forms (>= 4.5.0.617) \r\n VisualMOT.Android -> Xamarin.Forms (>= 4.5.0.495)",
+      "libraryId": "Xamarin.Forms",
+      "targetGraphs": [
+        "MonoAndroid,Version=v9.0"
+      ]
+    },
     {
       "code": "NU1605",
       "level": "Warning",
@@ -68,7 +79,7 @@
       "code": "NU1605",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Detected package downgrade: Xamarin.Essentials from 1.5.3.2 to 1.3.1. Reference the package directly from the project to select a different version. \r\n VisualMOT.Android -> VisualMOT -> Xamarin.Essentials (>= 1.5.3.2) \r\n VisualMOT.Android -> Xamarin.Essentials (>= 1.3.1)",
+      "message": "Detected package downgrade: Xamarin.Essentials from 1.7.0 to 1.5.3.2. Reference the package directly from the project to select a different version. \r\n VisualMOT.Android -> VisualMOT -> Xamarin.Essentials (>= 1.7.0) \r\n VisualMOT.Android -> Xamarin.Essentials (>= 1.5.3.2)",
       "libraryId": "Xamarin.Essentials",
       "targetGraphs": [
         "MonoAndroid,Version=v9.0"

@@ -13,7 +13,7 @@ namespace VisualMOT
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense(SyncFusionLicenseKey);
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new EntryPage());
         }
 
         protected override void OnStart()
