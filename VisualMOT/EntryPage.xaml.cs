@@ -7,6 +7,7 @@ using System.Globalization;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Web;
 using System.Windows.Input;
@@ -49,6 +50,7 @@ namespace VisualMOT
                         motHistory.LastTest = motHistory.motTests[0];
                         DateTime lastTestDate = DateTime.ParseExact(motHistory.LastTest.completedDate.Substring(0, 10), "yyyy.MM.dd", CultureInfo.InvariantCulture);
                         motHistory.LastTestDisplayText = motHistory.LastTest.motTestNumber + " " + lastTestDate.ToString("dd/MM/yyyy");
+                        motHistory.LastTestExpiryDate = lastTestDate.AddYears(1).ToString("dd/MM/yyyy");
                         motHistory.Items = motHistory.LastTest.rfrAndComments;
                         MOTHistoryPage motHistoryPage = new MOTHistoryPage(motHistory);
                         await Navigation.PushAsync(new NavigationPage(motHistoryPage));
@@ -69,7 +71,8 @@ namespace VisualMOT
             using (HttpClient httpClient = new HttpClient())
             {
                 string VehicleMakeItem = VehicleMakeComboBox.SelectedItem as string;
-                string url = Constants.MOTHistoryURL + VehicleRegistration + Constants.MOTHistoryURLMakeSuffix + VehicleMake;
+                string VehicleRegistrationNoWhiteSpace = Regex.Replace(VehicleRegistration, @"\s+", "");
+                string url = Constants.MOTHistoryURL + VehicleRegistrationNoWhiteSpace + Constants.MOTHistoryURLMakeSuffix + VehicleMake;
                 var motHistoryRequest = new HttpRequestMessage()
                 {
                     RequestUri = new Uri(url),

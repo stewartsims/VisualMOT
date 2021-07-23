@@ -9,17 +9,17 @@
              x:Class="VisualMOT.MOTHistoryPage">
 
     <StackLayout x:Name="Container">
-        <StackLayout Orientation="Horizontal">
-            <Label Text="{Binding registration}" />
-            <Label Text="{Binding make}" />
-            <Label Text="{Binding model}" />
+        <StackLayout Padding="10" Orientation="Horizontal">
+            <Label Text="{Binding registration}" FontSize="Medium" FontAttributes="Bold" />
+            <Label Text="{Binding make}" FontSize="Medium" />
+            <Label Text="{Binding model}" FontSize="Medium" />
         </StackLayout>
-        <StackLayout Orientation="Horizontal">
+        <StackLayout Padding="10" Orientation="Horizontal">
             <Label Text="Last test: "/>
-            <Label Text="{Binding LastTestDisplayText }" />
+            <Label Text="{Binding LastTestDisplayText }" FontAttributes="Bold" />
         </StackLayout>
         <ScrollView>
-            <syncfusion:SfListView x:Name="ItemsListView" ItemsSource="{Binding MOTItems}" SelectionChanged="ItemsListView_SelectionChanged" SelectionMode="Single" ItemSize="200">
+            <syncfusion:SfListView x:Name="ItemsListView" ItemsSource="{Binding MOTItems}" ItemTapped="ItemsListView_ItemTapped" ItemSize="200">
                 <syncfusion:SfListView.DataSource>
                     <data:DataSource>
                         <data:DataSource.GroupDescriptors>
@@ -29,19 +29,19 @@
                 </syncfusion:SfListView.DataSource>
                 <syncfusion:SfListView.ItemTemplate>
                     <DataTemplate>
-                        <Grid Padding="10">
+                        <Grid Padding="20">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="0.4*" />
                                 <RowDefinition Height="0.6*" />
                             </Grid.RowDefinitions>
                             <Label Text="{Binding text}" />
-                            <Image Source="{Binding imageSource}" />
+                            <Image Grid.Row="1" Source="{Binding ImageSource}" />
                         </Grid>
                     </DataTemplate>
                 </syncfusion:SfListView.ItemTemplate>
             </syncfusion:SfListView>
         </ScrollView>
-        <StackLayout>
+        <StackLayout Padding="10">
             <Button Text="Send"
                 VerticalOptions="CenterAndExpand"
                 HorizontalOptions="Center"

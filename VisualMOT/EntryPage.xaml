@@ -463,23 +463,27 @@
             <sys:String>ZINGYUE</sys:String>
         </x:Array>
     </ContentPage.Resources>
-    <StackLayout x:Name="Container">
+    <StackLayout x:Name="Container" Padding="10">
         <!-- Place new controls here -->
-        <Label Text="Welcome to Visual MOT" 
+        <Label Text="Welcome to Visual MOT" FontSize="Large" 
            HorizontalOptions="Center"
            VerticalOptions="CenterAndExpand" />
-        <Label Text="To get started enter the vehicle reg. below" 
+        <StackLayout Padding="10">
+            <Label Text="To get started enter the vehicle reg. below" 
                VerticalOptions="CenterAndExpand"
                HorizontalOptions="Center" />
-        <Entry Placeholder="A123 XYZ" TextChanged="Entry_TextChanged" />
-        <Label Text="Make of vehicle" 
-               VerticalOptions="CenterAndExpand"
-               HorizontalOptions="Center" />
-        <combobox:SfComboBox x:Name="VehicleMakeComboBox" BackgroundColor="#FFFFFF" HeightRequest="40" MaximumDropDownHeight="200" 
-                                     IsEditableMode="true" DataSource="{StaticResource Makes}" SelectionChanged="VehicleMakeComboBox_SelectionChanged"  />
+            <Entry Placeholder="AB12 XYZ" TextChanged="Entry_TextChanged" Margin="10" />
+        </StackLayout>
+        <StackLayout Padding="10">
+            <Label Text="Make of vehicle" 
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="Center" />
+            <combobox:SfComboBox x:Name="VehicleMakeComboBox" BackgroundColor="#FFFFFF" HeightRequest="40" MaximumDropDownHeight="200" Margin="10" 
+                                         IsEditableMode="true" DataSource="{StaticResource Makes}" SelectionChanged="VehicleMakeComboBox_SelectionChanged"  />
+        </StackLayout>
         <Button Text="Continue"
                 VerticalOptions="CenterAndExpand"
-                HorizontalOptions="Center"
+                HorizontalOptions="Fill"
                 Clicked="Button_Clicked" />
         
     </StackLayout>

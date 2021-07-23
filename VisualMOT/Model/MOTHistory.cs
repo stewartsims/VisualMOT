@@ -14,5 +14,6 @@ namespace VisualMOT.Model
         public List<MOTItem> Items { get; set; }
         public MOTTest LastTest { get; set; }
         public string LastTestDisplayText { get; set; }
+        public string LastTestExpiryDate { get; set; }
     }
 }

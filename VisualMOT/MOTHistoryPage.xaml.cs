@@ -38,89 +38,50 @@ namespace VisualMOT
         {
             this.MOTHistory = motHistory;
             this.MOTItems = new ObservableCollection<MOTItem>(motHistory.Items);
-            this.MOTItems.ForEach(item => item.imageSource = ImageSource.FromStream(() => new MemoryStream(item.image)));
             InitializeComponent();
             BindingContext = this.MOTHistory;
             ItemsListView.ItemsSource = MOTHistory.Items;
         }
 
+        protected override void OnAppearing()
+        {
+            this.Refresh();
+            base.OnAppearing();
+        }
+
+        public void Refresh()
+        {
+            this.MOTItems = new ObservableCollection<MOTItem>(MOTHistory.Items);
+            this.MOTItems.ForEach(item =>
+            {
+                if (item.image != null)
+                {
+                    item.ImageSource = ImageSource.FromStream(() => new MemoryStream(item.image));
+                }
+                else
+                {
+                    item.ImageSource = ImageSource.FromFile("image_placeholder.png");
+                }
+            });
+            OnPropertyChanged("MOTItems");
+            OnPropertyChanged();
+        }
+
         private void Button_Clicked(object sender, EventArgs e)
         {
-            SfBusyIndicator busyIndicator = new SfBusyIndicator();
-            busyIndicator.AnimationType = AnimationTypes.Gear;
-            Container.Children.Add(busyIndicator);
-            EmailCommand.Execute(busyIndicator);
+            Navigation.PushModalAsync(new NavigationPage(new SendPage(MOTHistory)));
         }
-
-        public ICommand EmailCommand
+        
+        private void ItemsListView_ItemTapped(object sender, Syncfusion.ListView.XForms.ItemTappedEventArgs e)
         {
-            get
+            MOTItem item = e.ItemData as MOTItem;
+            if (item.image != null)
             {
-                return new Command(async (parameter) =>
-                {
-                    SfBusyIndicator loadingSpinner = (SfBusyIndicator)parameter;
-                    loadingSpinner.IsBusy = true;
-                    /*
-                    List<EmailAttachment> attachments = new List<EmailAttachment>();
-                    foreach (MOTItem item in MOTHistory.Items.Where(item => item.image != null))
-                    {
-                        string file = Path.Combine(FileSystem.CacheDirectory, Path.GetTempFileName());
-                        File.WriteAllBytes(file, item.image);
-                        EmailAttachment attachment = new EmailAttachment(file);
-                    }
 
-                    msg.IsBodyHtml = true;
-                    Attachment inlineLogo = new Attachment(@"C:\Desktop\Image.jpg");
-                    msg.Attachments.Add(inlineLogo);
-                    string contentID = "Image";
-                    inlineLogo.ContentId = contentID;
-
-                    //To make the image display as inline and not as attachment
-
-                    inlineLogo.ContentDisposition.Inline = true;
-                    inlineLogo.ContentDisposition.DispositionType = DispositionTypeNames.Inline;
-
-                    //To embed image in email
-
-                    msg.Body = "<htm><body> <img src=\"cid:" + contentID + "\"> </body></html>";
-
-                    try
-                    {
-                        var message = new EmailMessage
-                        {
-                            Subject = Constants.EmailSubject,
-                            Body = body,
-                            To = recipients,
-                            Attachments = attachments
-                        };
-                        await Email.ComposeAsync(message);
-                    }
-                    */
-
-                    loadingSpinner.IsBusy = false;
-                });
             }
-        }
-
-        private void ItemsListView_SelectionChanged(object sender, Syncfusion.ListView.XForms.ItemSelectionChangedEventArgs e)
-        {
-            if (e.AddedItems.Count > 0)
+            else
             {
-                if (e.AddedItems[0] is MOTItem)
-                {
-                    MOTItem item = e.AddedItems[0] as MOTItem;
-                    if (item.image != null)
-                    {
-
-                    }
-                    else
-                    {
-                        Navigation.PushAsync(new NavigationPage(new UploadImagePage(item)));
-                    }
-                } else
-                {
-                    DisplayAlert("Oops", "not what i was expecting", "ok");
-                }
+                Navigation.PushModalAsync(new NavigationPage(new UploadImagePage(item, this)));
             }
         }
     }

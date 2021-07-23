@@ -35,6 +35,15 @@
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
+      "Org.Reddragonit.Stringtemplate/1.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/StringTemplate.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/StringTemplate.dll": {}
+        }
+      },
       "Plugin.Toast/2.2.0": {
         "type": "package",
         "dependencies": {
@@ -201,7 +210,7 @@
           "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
         }
       },
-      "Xamarin.Essentials/1.7.0": {
+      "Xamarin.Essentials/1.6.1": {
         "type": "package",
         "dependencies": {
           "System.Numerics.Vectors": "4.5.0"
@@ -405,6 +414,20 @@
         "newtonsoft.json.12.0.3.nupkg.sha512",
         "newtonsoft.json.nuspec",
         "packageIcon.png"
+      ]
+    },
+    "Org.Reddragonit.Stringtemplate/1.0.0": {
+      "sha512": "0G3pZFUGdMa9Iq+XX/5yT8jHdPY8RUHZy3QsZ8hysLDgtIM1O5prTu0IQiLO3gsfMcqkwrwggVNegOfUxEHe6Q==",
+      "type": "package",
+      "path": "org.reddragonit.stringtemplate/1.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net20/StringTemplate.dll",
+        "lib/net452/StringTemplate.dll",
+        "lib/netstandard2.0/StringTemplate.dll",
+        "org.reddragonit.stringtemplate.1.0.0.nupkg.sha512",
+        "org.reddragonit.stringtemplate.nuspec"
       ]
     },
     "Plugin.Toast/2.2.0": {
@@ -852,10 +875,10 @@
         "version.txt"
       ]
     },
-    "Xamarin.Essentials/1.7.0": {
-      "sha512": "xfUJNxtfMC05VBej7fVUg6Zd9VwM2kqW9LH0tcrSA6IsBTl0EsIGkYUOz1BoKT2rseWW8o3kTi5WH/yZV4GgJw==",
+    "Xamarin.Essentials/1.6.1": {
+      "sha512": "gG1Bp4j4bpJQ0dp9MeBJQJ9c8xULauIlhc7Cx5Qw4J2K1c+4Glq5n+gkb9Pm0UA/CevXVqLK5ZXmZkuYI52FgA==",
       "type": "package",
-      "path": "xamarin.essentials/1.7.0",
+      "path": "xamarin.essentials/1.6.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -864,6 +887,15 @@
         "lib/monoandroid10.0/Xamarin.Essentials.dll",
         "lib/monoandroid10.0/Xamarin.Essentials.pdb",
         "lib/monoandroid10.0/Xamarin.Essentials.xml",
+        "lib/monoandroid80/Xamarin.Essentials.dll",
+        "lib/monoandroid80/Xamarin.Essentials.pdb",
+        "lib/monoandroid80/Xamarin.Essentials.xml",
+        "lib/monoandroid81/Xamarin.Essentials.dll",
+        "lib/monoandroid81/Xamarin.Essentials.pdb",
+        "lib/monoandroid81/Xamarin.Essentials.xml",
+        "lib/monoandroid90/Xamarin.Essentials.dll",
+        "lib/monoandroid90/Xamarin.Essentials.pdb",
+        "lib/monoandroid90/Xamarin.Essentials.xml",
         "lib/netstandard1.0/Xamarin.Essentials.dll",
         "lib/netstandard1.0/Xamarin.Essentials.pdb",
         "lib/netstandard1.0/Xamarin.Essentials.xml",
@@ -890,7 +922,7 @@
         "lib/xamarinwatchos10/Xamarin.Essentials.pdb",
         "lib/xamarinwatchos10/Xamarin.Essentials.xml",
         "readme.txt",
-        "xamarin.essentials.1.7.0.nupkg.sha512",
+        "xamarin.essentials.1.6.1.nupkg.sha512",
         "xamarin.essentials.nuspec"
       ]
     },
@@ -1215,12 +1247,13 @@
     ".NETStandard,Version=v2.0": [
       "NETStandard.Library >= 2.0.3",
       "Newtonsoft.Json >= 12.0.3",
+      "Org.Reddragonit.Stringtemplate >= 1.0.0",
       "Plugin.Toast >= 2.2.0",
       "SkiaSharp >= 2.80.2",
       "Syncfusion.Xamarin.SfBusyIndicator >= 18.4.0.30",
       "Syncfusion.Xamarin.SfComboBox >= 18.4.0.30",
       "Syncfusion.Xamarin.SfListView >= 18.4.0.30",
-      "Xamarin.Essentials >= 1.7.0",
+      "Xamarin.Essentials >= 1.6.1",
       "Xamarin.Forms >= 4.8.0.1687"
     ]
   },
@@ -1278,6 +1311,10 @@
             "target": "Package",
             "version": "[12.0.3, )"
           },
+          "Org.Reddragonit.Stringtemplate": {
+            "target": "Package",
+            "version": "[1.0.0, )"
+          },
           "Plugin.Toast": {
             "target": "Package",
             "version": "[2.2.0, )"
@@ -1300,7 +1337,7 @@
           },
           "Xamarin.Essentials": {
             "target": "Package",
-            "version": "[1.7.0, )"
+            "version": "[1.6.1, )"
           },
           "Xamarin.Forms": {
             "target": "Package",

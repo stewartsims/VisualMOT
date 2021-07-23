@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "GAcR6TeS05j4aHJwCX/lsNnduU0wpb0mQfqLjos5M7u6jnwB0US1X2cgtfJcH1VFUGzJfHDWYX6xPIv51YvTEQ==",
+  "dgSpecHash": "gi1nO8JuYUHwkfAz2jSH9yaRhsXvQYPJz+hQS3jOcNa1bUAQrTCPK8FjKYmp6Tj++7VaPpc6fM+pyZ4+17XjTg==",
   "success": true,
   "projectFilePath": "C:\\Users\\stewa\\Documents\\Projects\\VisualMOT\\VisualMOT.iOS\\VisualMOT.iOS.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\stewa\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
+    "C:\\Users\\stewa\\.nuget\\packages\\org.reddragonit.stringtemplate\\1.0.0\\org.reddragonit.stringtemplate.1.0.0.nupkg.sha512",
     "C:\\Users\\stewa\\.nuget\\packages\\plugin.toast\\2.2.0\\plugin.toast.2.2.0.nupkg.sha512",
     "C:\\Users\\stewa\\.nuget\\packages\\skiasharp\\2.80.2\\skiasharp.2.80.2.nupkg.sha512",
     "C:\\Users\\stewa\\.nuget\\packages\\syncfusion.licensing\\18.4.0.30\\syncfusion.licensing.18.4.0.30.nupkg.sha512",
@@ -14,61 +15,9 @@
     "C:\\Users\\stewa\\.nuget\\packages\\syncfusion.xamarin.sfbusyindicator\\18.4.0.30\\syncfusion.xamarin.sfbusyindicator.18.4.0.30.nupkg.sha512",
     "C:\\Users\\stewa\\.nuget\\packages\\syncfusion.xamarin.sfcombobox\\18.4.0.30\\syncfusion.xamarin.sfcombobox.18.4.0.30.nupkg.sha512",
     "C:\\Users\\stewa\\.nuget\\packages\\syncfusion.xamarin.sflistview\\18.4.0.30\\syncfusion.xamarin.sflistview.18.4.0.30.nupkg.sha512",
-    "C:\\Microsoft\\Xamarin\\NuGet\\xamarin.essentials\\1.5.3.2\\xamarin.essentials.1.5.3.2.nupkg.sha512",
-    "C:\\Users\\stewa\\.nuget\\packages\\xamarin.forms\\4.5.0.495\\xamarin.forms.4.5.0.495.nupkg.sha512"
+    "C:\\Users\\stewa\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Users\\stewa\\.nuget\\packages\\xamarin.essentials\\1.6.1\\xamarin.essentials.1.6.1.nupkg.sha512",
+    "C:\\Users\\stewa\\.nuget\\packages\\xamarin.forms\\4.8.0.1687\\xamarin.forms.4.8.0.1687.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1605",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Detected package downgrade: Xamarin.Forms from 4.5.0.617 to 4.5.0.495. Reference the package directly from the project to select a different version. \r\n VisualMOT.iOS -> Syncfusion.Xamarin.SfComboBox 18.4.0.30 -> Xamarin.Forms (>= 4.5.0.617) \r\n VisualMOT.iOS -> Xamarin.Forms (>= 4.5.0.495)",
-      "libraryId": "Xamarin.Forms",
-      "targetGraphs": [
-        "Xamarin.iOS,Version=v1.0",
-        "Xamarin.iOS,Version=v1.0/win",
-        "Xamarin.iOS,Version=v1.0/win-x64",
-        "Xamarin.iOS,Version=v1.0/win-x86"
-      ]
-    },
-    {
-      "code": "NU1605",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Detected package downgrade: Xamarin.Forms from 4.5.0.617 to 4.5.0.495. Reference the package directly from the project to select a different version. \r\n VisualMOT.iOS -> Syncfusion.Xamarin.SfListView 18.4.0.30 -> Xamarin.Forms (>= 4.5.0.617) \r\n VisualMOT.iOS -> Xamarin.Forms (>= 4.5.0.495)",
-      "libraryId": "Xamarin.Forms",
-      "targetGraphs": [
-        "Xamarin.iOS,Version=v1.0",
-        "Xamarin.iOS,Version=v1.0/win",
-        "Xamarin.iOS,Version=v1.0/win-x64",
-        "Xamarin.iOS,Version=v1.0/win-x86"
-      ]
-    },
-    {
-      "code": "NU1605",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Detected package downgrade: Xamarin.Essentials from 1.7.0 to 1.5.3.2. Reference the package directly from the project to select a different version. \r\n VisualMOT.iOS -> VisualMOT -> Xamarin.Essentials (>= 1.7.0) \r\n VisualMOT.iOS -> Xamarin.Essentials (>= 1.5.3.2)",
-      "libraryId": "Xamarin.Essentials",
-      "targetGraphs": [
-        "Xamarin.iOS,Version=v1.0",
-        "Xamarin.iOS,Version=v1.0/win",
-        "Xamarin.iOS,Version=v1.0/win-x64",
-        "Xamarin.iOS,Version=v1.0/win-x86"
-      ]
-    },
-    {
-      "code": "NU1605",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Detected package downgrade: Xamarin.Forms from 4.8.0.1687 to 4.5.0.495. Reference the package directly from the project to select a different version. \r\n VisualMOT.iOS -> VisualMOT -> Xamarin.Forms (>= 4.8.0.1687) \r\n VisualMOT.iOS -> Xamarin.Forms (>= 4.5.0.495)",
-      "libraryId": "Xamarin.Forms",
-      "targetGraphs": [
-        "Xamarin.iOS,Version=v1.0",
-        "Xamarin.iOS,Version=v1.0/win",
-        "Xamarin.iOS,Version=v1.0/win-x64",
-        "Xamarin.iOS,Version=v1.0/win-x86"
-      ]
-    }
-  ]
+  "logs": []
 }

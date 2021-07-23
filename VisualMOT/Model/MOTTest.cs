@@ -9,6 +9,8 @@ namespace VisualMOT.Model
         public string completedDate { get; set; }
         public string motTestNumber { get; set; }
         public string testResult { get; set; }
+        public string odometerValue { get; set; }
+        public string odometerUnit { get; set; }
         public List<MOTItem> rfrAndComments { get; set; }
     }
 }

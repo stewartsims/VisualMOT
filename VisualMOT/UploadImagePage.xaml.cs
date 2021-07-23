@@ -23,10 +23,14 @@ namespace VisualMOT
         public FileResult ChosenImage { get; set; }
         public string ImageText { get; set; }
 
-        public UploadImagePage(MOTItem motItem)
+        private MOTHistoryPage MOTHistoryPage { get; set; }
+
+        public UploadImagePage(MOTItem motItem, MOTHistoryPage motHistoryPage)
         {
-            InitializeComponent();
             MOTItem = motItem;
+            ImageText = motItem.text;
+            this.MOTHistoryPage = motHistoryPage;
+            InitializeComponent();
         }
 
         protected override void OnAppearing()
@@ -66,7 +70,7 @@ namespace VisualMOT
 
             if (ChosenImage != null)
             {
-                ImageText = "Image attached: " + ChosenImage.FullPath;
+                ImageText += "\n\nImage attached: " + ChosenImage.FullPath;
                 OnPropertyChanged("ImageText");
             }
         }
@@ -90,6 +94,7 @@ namespace VisualMOT
             sfBusyIndicator.AnimationType = AnimationTypes.DoubleCircle;
             Container.Children.Add(sfBusyIndicator);
             SaveCommand.Execute(sfBusyIndicator);
+            MOTHistoryPage.Refresh();
         }
 
         public ICommand SaveCommand
@@ -113,7 +118,6 @@ namespace VisualMOT
 
         private async Task SaveTask()
         {
-            string uploadedImageId = null;
             if (ChosenImage != null)
             {
                 using (Stream stream = ChosenImage.OpenReadAsync().Result)
@@ -138,7 +142,8 @@ namespace VisualMOT
                     //}
                     thumbnailBytes = imageData.ToArray();
                     MOTItem.image = thumbnailBytes;
-                    await Navigation.PopAsync();
+                    await Navigation.PopModalAsync();
+                    MOTHistoryPage.Refresh();
                 }
             }
         }
@@ -167,7 +172,7 @@ namespace VisualMOT
 
         async void Cancel_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PopAsync();
+            await Navigation.PopModalAsync();
         }
     }
 }

@@ -11,14 +11,25 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="ItemTemplate.html" />
+    <None Remove="TemplatePass.html" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="ItemTemplate.html" />
+    <EmbeddedResource Include="TemplatePass.html" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="Org.Reddragonit.Stringtemplate" Version="1.0.0" />
     <PackageReference Include="Plugin.Toast" Version="2.2.0" />
     <PackageReference Include="SkiaSharp" Version="2.80.2" />
     <PackageReference Include="Syncfusion.Xamarin.SfBusyIndicator" Version="18.4.0.30" />
     <PackageReference Include="Syncfusion.Xamarin.SfComboBox" Version="18.4.0.30" />
     <PackageReference Include="Syncfusion.Xamarin.SfListView" Version="18.4.0.30" />
     <PackageReference Include="Xamarin.Forms" Version="4.8.0.1687" />
-    <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -31,5 +42,11 @@
     <Compile Update="UploadImagePage.xaml.cs">
       <DependentUpon>UploadImagePage.xaml</DependentUpon>
     </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="SendPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>
