@@ -28,7 +28,9 @@
                     <Button x:Name="PickImageButton" Clicked="PickImage_Clicked" HorizontalOptions="FillAndExpand" BackgroundColor="#336699" TextColor="White" Text="Pick an existing image" Margin="3" Padding="10" FontSize="Micro" HeightRequest="40" />
                     <Button x:Name="TakePhotoButton" Clicked="TakePhoto_Clicked" HorizontalOptions="FillAndExpand" BackgroundColor="#336699" TextColor="White" Text="Take photo" Margin="3" Padding="10" FontSize="Micro" HeightRequest="40" />
                 </StackLayout>
-                <Label Text="{Binding Path=ImageText, Source={x:Reference UploadImageView}}" />
+                <Label Text="Note - for the best results it is recommended to use photos taken in landscape" FontAttributes="Bold" />
+                <Label></Label>
+                <Label Text="{Binding Path=ImageText, Source={x:Reference UploadImageView}}" FontSize="Large" />
             </StackLayout>
         </ScrollView>
     </StackLayout>
