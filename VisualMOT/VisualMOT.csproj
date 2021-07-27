@@ -40,6 +40,9 @@
     <Compile Update="MOTHistoryPage.xaml.cs">
       <DependentUpon>MOTHistoryPage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="AddCommentPage.xaml.cs">
+      <DependentUpon>AddCommentPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="UploadImagePage.xaml.cs">
       <DependentUpon>UploadImagePage.xaml</DependentUpon>
     </Compile>

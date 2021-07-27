@@ -25,6 +25,7 @@ namespace VisualMOT
         public IFileHelper FileHelper = DependencyService.Get<IFileHelper>();
         private string CustomerEmail { get; set; }
         private string YourEmail { get; set; }
+        private string Comment { get; set; }
 
         private MOTHistory MOTHistory { get; set; }
 
@@ -42,6 +43,10 @@ namespace VisualMOT
         {
             YourEmail = e.NewTextValue;
         }
+        private void CommentEntry_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Comment = e.NewTextValue;
+        }
 
         private void Button_Clicked(object sender, EventArgs e)
         {
@@ -58,7 +63,7 @@ namespace VisualMOT
                 return new Command(async (parameter) =>
                 {
                     SfBusyIndicator loadingSpinner = (SfBusyIndicator)parameter;
-                    busyIndicator.IsBusy = true;
+                    loadingSpinner.IsBusy = true;
 
                     MimeMessage message = new MimeMessage();
 
@@ -66,6 +71,7 @@ namespace VisualMOT
                     // image attachment
                     var multipart = new Multipart("mixed");
 
+                    int i = 1;
                     foreach (MOTItem item in MOTHistory.Items.Where(item => item.image != null))
                     {
                         string fileName = Path.GetTempFileName();
@@ -78,7 +84,7 @@ namespace VisualMOT
                             ContentDisposition = new ContentDisposition(ContentDisposition.Inline),
                             ContentTransferEncoding = ContentEncoding.Base64,
                             ContentId = contentId,
-                            FileName = fileName,
+                            FileName = MOTHistory.registration+"_"+MOTHistory.LastTest.motTestNumber+"_"+i+".jpg",
                         }); ;
                         item.imageFileName = contentId;
                     }
@@ -102,6 +108,7 @@ namespace VisualMOT
                     templator.SetAttribute("number", MOTHistory.LastTest.motTestNumber);
                     templator.SetAttribute("mileage", MOTHistory.LastTest.odometerValue + MOTHistory.LastTest.odometerUnit);
                     templator.SetAttribute("expiry", MOTHistory.LastTestExpiryDate);
+                    templator.SetAttribute("comment", Comment);
 
                     List<string> items = new List<string>();
                     foreach (MOTItem item in MOTHistory.Items)
@@ -110,6 +117,7 @@ namespace VisualMOT
                         itemTemplator.SetAttribute("severity", item.type);
                         itemTemplator.SetAttribute("description", item.text);
                         itemTemplator.SetAttribute("image", item.imageFileName);
+                        itemTemplator.SetAttribute("comment", item.comment);
                         items.Add(itemTemplator.ToString());
                     }
 

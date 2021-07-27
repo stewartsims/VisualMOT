@@ -67,14 +67,15 @@ namespace VisualMOT
             OnPropertyChanged();
         }
 
-        private void Button_Clicked(object sender, EventArgs e)
+        private void SendButton_Clicked(object sender, EventArgs e)
         {
             Navigation.PushModalAsync(new NavigationPage(new SendPage(MOTHistory)));
         }
-        
-        private void ItemsListView_ItemTapped(object sender, Syncfusion.ListView.XForms.ItemTappedEventArgs e)
+
+        private void ImageButton_Clicked(object sender, EventArgs e)
         {
-            MOTItem item = e.ItemData as MOTItem;
+            Button button = sender as Button;
+            MOTItem item = button.CommandParameter as MOTItem;
             if (item.image != null)
             {
 
@@ -83,6 +84,33 @@ namespace VisualMOT
             {
                 Navigation.PushModalAsync(new NavigationPage(new UploadImagePage(item, this)));
             }
+        }
+
+        public Command ImageCommand
+        {
+            get
+            {
+                return new Command(async (parameter) =>
+                {
+                    ClickableImage image = parameter as ClickableImage;
+                    MOTItem item = image.ClickParameter as MOTItem;
+                    if (item.image != null)
+                    {
+
+                    }
+                    else
+                    {
+                        Navigation.PushModalAsync(new NavigationPage(new UploadImagePage(item, this)));
+                    }
+                });
+            }
+        }
+
+        private void CommentButton_Clicked(object sender, EventArgs e)
+        {
+            Button button = sender as Button;
+            MOTItem item = button.CommandParameter as MOTItem;
+            Navigation.PushModalAsync(new NavigationPage(new AddCommentPage(item, this)));
         }
     }
 }

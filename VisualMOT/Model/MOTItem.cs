@@ -15,7 +15,10 @@ namespace VisualMOT.Model
 
         public byte[] image { get; set; }
         public string imageFileName { get; set; }
+        public string comment { get; set; }
 
+        public bool HasComment { get { return comment != null; } }
+        public bool NoComment { get { return comment == null; } }
 
         private ImageSource imageSource = null;
 
