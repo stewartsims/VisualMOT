@@ -152,4 +152,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\image_placeholder.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\VisualMOT.png" />
+  </ItemGroup>
 </Project>

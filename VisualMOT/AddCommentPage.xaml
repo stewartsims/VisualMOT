@@ -7,7 +7,7 @@
     <StackLayout Padding="10" Margin="10">
         <StackLayout Orientation="Horizontal">
             <Button Text="Cancel" 
-                        BackgroundColor="#336699"
+                        BackgroundColor="#75A0FF"
                         TextColor="white"
                         HeightRequest="32"
                         CornerRadius="5"
@@ -15,8 +15,8 @@
                         HorizontalOptions="FillAndExpand" Clicked="Cancel_Clicked" />
 
             <Button Text="Save"                        
-                        BackgroundColor="Red"
-                        TextColor="white"
+                        BackgroundColor="#FFD000"
+                        TextColor="black"
                         HeightRequest="32"
                         CornerRadius="5"
                         FontSize="Micro"

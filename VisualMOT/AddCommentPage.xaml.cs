@@ -49,8 +49,8 @@ namespace VisualMOT
         private async void Save_Clicked(object sender, EventArgs e)
         {
             MOTItem.comment = Comment;
-            MOTHistoryPage.Refresh();
             await Navigation.PopModalAsync();
+            MOTHistoryPage.Refresh();
         }
 
         async void Cancel_Clicked(object sender, EventArgs e)

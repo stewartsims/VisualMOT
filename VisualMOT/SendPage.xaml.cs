@@ -6,6 +6,7 @@ using Plugin.Toast;
 using Syncfusion.SfBusyIndicator.XForms;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -19,7 +20,7 @@ using Xamarin.Forms.Xaml;
 
 namespace VisualMOT
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
+    [DesignTimeVisible(false)]
     public partial class SendPage : ContentPage
     {
         public IFileHelper FileHelper = DependencyService.Get<IFileHelper>();
@@ -52,6 +53,7 @@ namespace VisualMOT
         {
             SfBusyIndicator busyIndicator = new SfBusyIndicator();
             busyIndicator.AnimationType = AnimationTypes.Gear;
+            busyIndicator.IsBusy = true;
             Container.Children.Add(busyIndicator);
             EmailCommand.Execute(busyIndicator);
         }
@@ -64,106 +66,120 @@ namespace VisualMOT
                 {
                     SfBusyIndicator loadingSpinner = (SfBusyIndicator)parameter;
                     loadingSpinner.IsBusy = true;
-
-                    MimeMessage message = new MimeMessage();
-
-                    // now create the multipart/mixed container to hold the message text and the
-                    // image attachment
-                    var multipart = new Multipart("mixed");
-
-                    int i = 1;
-                    foreach (MOTItem item in MOTHistory.Items.Where(item => item.image != null))
+                    bool success = await EmailTask();
+                    if (success)
                     {
-                        string fileName = Path.GetTempFileName();
-                        string file = Path.Combine(FileSystem.CacheDirectory, fileName);
-                        File.WriteAllBytes(file, item.image);
-
-                        string contentId = Guid.NewGuid().ToString();
-                        multipart.Add(new MimePart("image", "jpg") {
-                            ContentObject = new ContentObject(File.OpenRead(file), ContentEncoding.Default),
-                            ContentDisposition = new ContentDisposition(ContentDisposition.Inline),
-                            ContentTransferEncoding = ContentEncoding.Base64,
-                            ContentId = contentId,
-                            FileName = MOTHistory.registration+"_"+MOTHistory.LastTest.motTestNumber+"_"+i+".jpg",
-                        }); ;
-                        item.imageFileName = contentId;
-                    }
-
-                    //To embed image in email
-                    string template;
-                    if (MOTHistory.LastTest.testResult == "PASSED")
-                    {
-                        template = new StreamReader(FileHelper.GetSharedFile("TemplatePass.html")).ReadToEnd();
+                        CrossToastPopUp.Current.ShowToastSuccess("The MOT report has been successfully sent. Thank you for using Visual MOT");
+                        loadingSpinner.IsBusy = false;
+                        await Navigation.PopAsync();
                     }
                     else
                     {
-                        template = new StreamReader(FileHelper.GetSharedFile("TemplateFail.html")).ReadToEnd();
-                    }
-                    string itemTemplate = new StreamReader(FileHelper.GetSharedFile("ItemTemplate.html")).ReadToEnd();
-
-                    Template templator = new Template(template);
-                    templator.SetAttribute("make", MOTHistory.make);
-                    templator.SetAttribute("model", MOTHistory.model);
-                    templator.SetAttribute("registration", MOTHistory.registration);
-                    templator.SetAttribute("number", MOTHistory.LastTest.motTestNumber);
-                    templator.SetAttribute("mileage", MOTHistory.LastTest.odometerValue + MOTHistory.LastTest.odometerUnit);
-                    templator.SetAttribute("expiry", MOTHistory.LastTestExpiryDate);
-                    templator.SetAttribute("comment", Comment);
-
-                    List<string> items = new List<string>();
-                    foreach (MOTItem item in MOTHistory.Items)
-                    {
-                        Template itemTemplator = new Template(itemTemplate);
-                        itemTemplator.SetAttribute("severity", item.type);
-                        itemTemplator.SetAttribute("description", item.text);
-                        itemTemplator.SetAttribute("image", item.imageFileName);
-                        itemTemplator.SetAttribute("comment", item.comment);
-                        items.Add(itemTemplator.ToString());
-                    }
-
-                    templator.SetAttribute("items", string.Join("\n", items));
-                    string body = templator.ToString();
-
-
-                    int port = System.Int32.Parse(Constants.MailPort);
-                    bool ssl = bool.Parse(Constants.MailSSL);
-
-                    ServicePointManager.ServerCertificateValidationCallback = (sender, certificate, chain, sslPolicyErrors) => true;
-
-                    SmtpClient client = new SmtpClient();
-                    client.Connect(Constants.MailHost, port, SecureSocketOptions.StartTls);
-                    client.Authenticate(Constants.MailUsername, Constants.MailPassword);
-                                      
-                    multipart.Add(new TextPart("html") { Text = body });
-                    message.Body = multipart;
-
-                    MailboxAddress fromAddress = new MailboxAddress(Constants.MailFrom, Constants.MailFromAddress);
-                    message.Subject = Constants.MailSubject;
-                    message.From.Add(fromAddress);
-
-                    if (!string.IsNullOrEmpty(CustomerEmail))
-                    {
-                        message.To.Add(new MailboxAddress(CustomerEmail));
-                    }
-                    if (!string.IsNullOrEmpty(YourEmail))
-                    {
-                        message.To.Add(new MailboxAddress(YourEmail));
-                    }
-
-                    try
-                    {
-                        client.Send(message);
-                        CrossToastPopUp.Current.ShowToastSuccess("The MOT report has been successfully sent. Thank you for using Visual MOT");
                         loadingSpinner.IsBusy = false;
-                        Navigation.PopAsync();
+                        await DisplayAlert("Error", "There was a problem sending the report, please try again.", "OK");
                     }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine(ex.ToString());
-                        DisplayAlert("Error", "There was a problem sending the report, please try again.", "OK");
-                    }
-                    loadingSpinner.IsBusy = false;
                 });
+            }
+        }
+
+        private async Task<bool> EmailTask()
+        {
+            MimeMessage message = new MimeMessage();
+
+            // now create the multipart/mixed container to hold the message text and the
+            // image attachment
+            var multipart = new Multipart("mixed");
+
+            int i = 1;
+            foreach (MOTItem item in MOTHistory.Items.Where(item => item.image != null))
+            {
+                string fileName = Path.GetTempFileName();
+                string file = Path.Combine(FileSystem.CacheDirectory, fileName);
+                File.WriteAllBytes(file, item.image);
+
+                string contentId = Guid.NewGuid().ToString();
+                multipart.Add(new MimePart("image", "jpg")
+                {
+                    ContentObject = new ContentObject(File.OpenRead(file), ContentEncoding.Default),
+                    ContentDisposition = new ContentDisposition(ContentDisposition.Inline),
+                    ContentTransferEncoding = ContentEncoding.Base64,
+                    ContentId = contentId,
+                    FileName = MOTHistory.registration + "_" + MOTHistory.LastTest.motTestNumber + "_" + i + ".jpg",
+                }); ;
+                item.imageFileName = contentId;
+            }
+
+            //To embed image in email
+            string template;
+            if (MOTHistory.LastTest.testResult == "PASSED")
+            {
+                template = new StreamReader(FileHelper.GetSharedFile("TemplatePass.html")).ReadToEnd();
+            }
+            else
+            {
+                template = new StreamReader(FileHelper.GetSharedFile("TemplateFail.html")).ReadToEnd();
+            }
+            string itemTemplate = new StreamReader(FileHelper.GetSharedFile("ItemTemplate.html")).ReadToEnd();
+
+            Template templator = new Template(template);
+            templator.SetAttribute("make", MOTHistory.make);
+            templator.SetAttribute("model", MOTHistory.model);
+            templator.SetAttribute("registration", MOTHistory.registration);
+            templator.SetAttribute("number", MOTHistory.LastTest.motTestNumber);
+            templator.SetAttribute("mileage", MOTHistory.LastTest.odometerValue + MOTHistory.LastTest.odometerUnit);
+            templator.SetAttribute("expiry", MOTHistory.LastTestExpiryDate);
+            templator.SetAttribute("comment", Comment);
+
+            List<string> items = new List<string>();
+            foreach (MOTItem item in MOTHistory.Items)
+            {
+                string image = item.imageFileName != null ? "<img src=\"cid:" + item.imageFileName + "\">" : "(no photo supplied)";
+                Template itemTemplator = new Template(itemTemplate);
+                itemTemplator.SetAttribute("severity", item.type);
+                itemTemplator.SetAttribute("description", item.text);
+                itemTemplator.SetAttribute("image", image);
+                itemTemplator.SetAttribute("comment", item.comment);
+                items.Add(itemTemplator.ToString());
+            }
+
+            templator.SetAttribute("items", string.Join("\n", items));
+            string body = templator.ToString();
+
+
+            int port = System.Int32.Parse(Constants.MailPort);
+            bool ssl = bool.Parse(Constants.MailSSL);
+
+            ServicePointManager.ServerCertificateValidationCallback = (sender, certificate, chain, sslPolicyErrors) => true;
+
+            SmtpClient client = new SmtpClient();
+            client.Connect(Constants.MailHost, port, SecureSocketOptions.StartTls);
+            client.Authenticate(Constants.MailUsername, Constants.MailPassword);
+
+            multipart.Add(new TextPart("html") { Text = body });
+            message.Body = multipart;
+
+            MailboxAddress fromAddress = new MailboxAddress(Constants.MailFrom, Constants.MailFromAddress);
+            message.Subject = Constants.MailSubject;
+            message.From.Add(fromAddress);
+
+            if (!string.IsNullOrEmpty(CustomerEmail))
+            {
+                message.To.Add(new MailboxAddress(CustomerEmail));
+            }
+            if (!string.IsNullOrEmpty(YourEmail))
+            {
+                message.To.Add(new MailboxAddress(YourEmail));
+            }
+
+            try
+            {
+                client.Send(message);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return false;
             }
         }
     }

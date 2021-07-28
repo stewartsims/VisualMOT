@@ -24,7 +24,11 @@
                 <syncfusion:SfListView.DataSource>
                     <data:DataSource>
                         <data:DataSource.GroupDescriptors>
-                            <data:GroupDescriptor PropertyName="type"/>
+                            <data:GroupDescriptor PropertyName="type">
+                                <data:GroupDescriptor.Comparer>
+                                    <visualmot:SeverityGroupComparer/>
+                                </data:GroupDescriptor.Comparer>
+                            </data:GroupDescriptor>
                         </data:DataSource.GroupDescriptors>
                     </data:DataSource>
                 </syncfusion:SfListView.DataSource>

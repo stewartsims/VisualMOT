@@ -17,8 +17,8 @@ namespace VisualMOT.Model
         public string imageFileName { get; set; }
         public string comment { get; set; }
 
-        public bool HasComment { get { return comment != null; } }
-        public bool NoComment { get { return comment == null; } }
+        public bool HasComment { get; set; }
+        public bool NoComment { get; set; }
 
         private ImageSource imageSource = null;
 

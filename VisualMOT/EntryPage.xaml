@@ -465,9 +465,7 @@
     </ContentPage.Resources>
     <StackLayout x:Name="Container" Padding="10">
         <!-- Place new controls here -->
-        <Label Text="Welcome to Visual MOT" FontSize="Large" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
+        <Image Source="VisualMOT.png" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" HeightRequest="150" />
         <StackLayout Padding="10">
             <Label Text="To get started enter the vehicle reg. below" 
                VerticalOptions="CenterAndExpand"

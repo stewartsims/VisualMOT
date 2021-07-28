@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Plugin.Toast;
 using Syncfusion.SfBusyIndicator.XForms;
 using System;
 using System.Collections.Generic;
@@ -43,6 +44,15 @@ namespace VisualMOT
             {
                 return new Command(async (parameter) =>
                 {
+                    if (VehicleRegistration == null)
+                    {
+                        CrossToastPopUp.Current.ShowToastWarning("Please enter a valid vehicle registration to continue");
+                        return;
+                    }
+                    if (VehicleMake == null)
+                    {
+                        CrossToastPopUp.Current.ShowToastWarning("Please enter the vehicle make to continue");
+                    }
                     SfBusyIndicator loadingSpinner = (SfBusyIndicator)parameter;
                     try
                     {

@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="VisualMOT.SendPage">
     <StackLayout x:Name="Container" Padding="10">
-        <Label Text="Enter the customer's email address, your email address or both below. You can also add an additional comment." 
+        <Label FontAttributes="Bold" Text="Enter the customer's email address, your email address or both below. You can also add an additional comment." 
         HorizontalOptions="Center"
         VerticalOptions="CenterAndExpand" />
         <StackLayout Padding="10">

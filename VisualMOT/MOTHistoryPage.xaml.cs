@@ -62,6 +62,8 @@ namespace VisualMOT
                 {
                     item.ImageSource = ImageSource.FromFile("image_placeholder.png");
                 }
+                item.HasComment = item.comment != null;
+                item.NoComment = item.comment == null;
             });
             OnPropertyChanged("MOTItems");
             OnPropertyChanged();

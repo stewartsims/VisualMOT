@@ -11208,6 +11208,9 @@ namespace VisualMOT.Droid
 			// aapt resource value: 0x7F070099
 			public const int tooltip_frame_light = 2131165337;
 			
+			// aapt resource value: 0x7F07009A
+			public const int VisualMOT = 2131165338;
+			
 			static Drawable()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
