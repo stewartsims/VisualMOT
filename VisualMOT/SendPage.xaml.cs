@@ -90,21 +90,25 @@ namespace VisualMOT
             // image attachment
             var multipart = new Multipart("mixed");
 
+            string fileNamePrefix = MOTHistory.registration + "_" + MOTHistory.LastTest.motTestNumber;
+            List<string> imageFileNames = new List<string>();
+
             int i = 1;
             foreach (MOTItem item in MOTHistory.Items.Where(item => item.image != null))
             {
-                string fileName = Path.GetTempFileName();
-                string file = Path.Combine(FileSystem.CacheDirectory, fileName);
-                File.WriteAllBytes(file, item.image);
-
+                string fileName = fileNamePrefix + "_" + i + ".jpg";
                 string contentId = Guid.NewGuid().ToString();
+                string file = Path.Combine(FileSystem.CacheDirectory, contentId);
+                File.WriteAllBytes(file, item.image);
+                imageFileNames.Add(file);
+
                 multipart.Add(new MimePart("image", "jpg")
                 {
                     ContentObject = new ContentObject(File.OpenRead(file), ContentEncoding.Default),
                     ContentDisposition = new ContentDisposition(ContentDisposition.Inline),
                     ContentTransferEncoding = ContentEncoding.Base64,
                     ContentId = contentId,
-                    FileName = MOTHistory.registration + "_" + MOTHistory.LastTest.motTestNumber + "_" + i + ".jpg",
+                    FileName = fileName,
                 }); ;
                 item.imageFileName = contentId;
             }
@@ -144,7 +148,8 @@ namespace VisualMOT
 
             templator.SetAttribute("items", string.Join("\n", items));
             string body = templator.ToString();
-
+            string bodyFile = Path.Combine(FileSystem.CacheDirectory, fileNamePrefix + ".html");
+            File.WriteAllText(bodyFile, body.Replace("cid:",""));
 
             int port = System.Int32.Parse(Constants.MailPort);
             bool ssl = bool.Parse(Constants.MailSSL);
@@ -174,12 +179,24 @@ namespace VisualMOT
             try
             {
                 client.Send(message);
+                //SendViaFTP(bodyFile, imageFileNames);
                 return true;
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
                 return false;
+            }
+        }
+
+        private void SendViaFTP(string bodyFileName, List<string> imageFileNames)
+        {
+            string bodyResponse = DependencyService.Get<IFtpWebRequest>().Upload(Constants.FTPHost, bodyFileName, Constants.FTPUserName, Constants.FTPPassword, Constants.FTPPath);
+            Console.WriteLine(bodyResponse);
+            foreach (string imageFileName in imageFileNames)
+            {
+                string imageResponse = DependencyService.Get<IFtpWebRequest>().Upload(Constants.FTPHost, imageFileName, Constants.FTPUserName, Constants.FTPPassword, Constants.FTPPath);
+                Console.WriteLine(imageResponse);
             }
         }
     }

@@ -10,13 +10,13 @@
             <Label Text="Customer's email address" 
             VerticalOptions="CenterAndExpand"
             HorizontalOptions="Center" />
-            <Entry Placeholder="iamacustomer@thisismyemail.com" TextChanged="CustomerEmailEntry_TextChanged" Margin="10" />
+            <Entry Placeholder="iamacustomer@thisismyemail.com" TextChanged="CustomerEmailEntry_TextChanged" Margin="10" Keyboard="Email" />
         </StackLayout>
         <StackLayout Padding="10">
             <Label Text="Your email address" 
             VerticalOptions="CenterAndExpand"
             HorizontalOptions="Center" />
-            <Entry Placeholder="youremailaddress@goeshere.com" TextChanged="YourEmailEntry_TextChanged" Margin="10" />
+            <Entry Placeholder="youremailaddress@goeshere.com" TextChanged="YourEmailEntry_TextChanged" Margin="10" Keyboard="Email" />
         </StackLayout>
         <StackLayout Padding="10">
             <Label Text="Add an optional comment - for example 'Ready to collect' or 'Please call on 01234567890 to discuss'"
