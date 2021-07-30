@@ -5,6 +5,7 @@ using System.Linq;
 using Foundation;
 using Syncfusion.ListView.XForms.iOS;
 using Syncfusion.XForms.iOS.ComboBox;
+using Syncfusion.XForms.iOS.TabView;
 using UIKit;
 
 namespace VisualMOT.iOS
@@ -27,6 +28,7 @@ namespace VisualMOT.iOS
             global::Xamarin.Forms.Forms.Init();
             SfComboBoxRenderer.Init();
             SfListViewRenderer.Init();
+            SfTabViewRenderer.Init();
             LoadApplication(new App());
             return base.FinishedLaunching(app, options);
         }

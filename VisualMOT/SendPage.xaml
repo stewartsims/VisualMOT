@@ -1,27 +1,59 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:tabView="clr-namespace:Syncfusion.XForms.TabView;assembly=Syncfusion.SfTabView.XForms"
              x:Class="VisualMOT.SendPage">
+    
     <StackLayout x:Name="Container" Padding="10">
-        <Label FontAttributes="Bold" Text="Enter the customer's email address, your email address or both below. You can also add an additional comment." 
-        HorizontalOptions="Center"
-        VerticalOptions="CenterAndExpand" />
-        <StackLayout Padding="10">
-            <Label Text="Customer's email address" 
-            VerticalOptions="CenterAndExpand"
-            HorizontalOptions="Center" />
-            <Entry Placeholder="iamacustomer@thisismyemail.com" TextChanged="CustomerEmailEntry_TextChanged" Margin="10" Keyboard="Email" />
-        </StackLayout>
-        <StackLayout Padding="10">
-            <Label Text="Your email address" 
-            VerticalOptions="CenterAndExpand"
-            HorizontalOptions="Center" />
-            <Entry Placeholder="youremailaddress@goeshere.com" TextChanged="YourEmailEntry_TextChanged" Margin="10" Keyboard="Email" />
-        </StackLayout>
+        <tabView:SfTabView BackgroundColor="#FFD000">
+            <tabView:SfTabItem Title="Email">
+                <tabView:SfTabItem.Content>
+                    <StackLayout Padding="10" BackgroundColor="#F2EFE6">
+                        <Label FontAttributes="Bold" Text="Enter the customer's email address, your email address or both." 
+                            HorizontalOptions="Center"
+                            VerticalOptions="CenterAndExpand" />
+                        <StackLayout Padding="10">
+                            <Label Text="Customer's email address" 
+                                VerticalOptions="CenterAndExpand"
+                                HorizontalOptions="Center" />
+                            <Entry Placeholder="iamacustomer@thisismyemail.com" TextChanged="CustomerEmailEntry_TextChanged" Margin="10" Keyboard="Email" />
+                        </StackLayout>
+                        <StackLayout Padding="10">
+                            <Label Text="Your email address" 
+                                VerticalOptions="CenterAndExpand"
+                                HorizontalOptions="Center" />
+                            <Entry Placeholder="youremailaddress@goeshere.com" TextChanged="YourEmailEntry_TextChanged" Margin="10" Keyboard="Email" />
+                        </StackLayout>
+                    </StackLayout>
+                </tabView:SfTabItem.Content>
+            </tabView:SfTabItem>
+            <tabView:SfTabItem Title="SMS">
+                <tabView:SfTabItem.Content>
+                    <StackLayout Padding="10" BackgroundColor="#F2EFE6">
+                        <Label FontAttributes="Bold" Text="Enter the customer's mobile number. You can also enter your email address to receive a copy by email." 
+                            HorizontalOptions="Center"
+                            VerticalOptions="CenterAndExpand" />
+                        <StackLayout Padding="10">
+                            <Label Text="Customer's mobile number" 
+                                VerticalOptions="CenterAndExpand"
+                                HorizontalOptions="Center" />
+                            <Entry Placeholder="071234567890" TextChanged="CustomerSMSEntry_TextChanged" Margin="10" Keyboard="Numeric" />
+                        </StackLayout>
+                        <StackLayout Padding="10">
+                            <Label Text="Your email address" 
+                                VerticalOptions="CenterAndExpand"
+                                HorizontalOptions="Center" />
+                            <Entry Placeholder="youremailaddress@goeshere.com" TextChanged="YourEmailEntry_TextChanged" Margin="10" Keyboard="Email" />
+                        </StackLayout>
+                    </StackLayout>
+                </tabView:SfTabItem.Content>
+            </tabView:SfTabItem>
+        </tabView:SfTabView>
+        
         <StackLayout Padding="10">
             <Label Text="Add an optional comment - for example 'Ready to collect' or 'Please call on 01234567890 to discuss'"
-            VerticalOptions="CenterAndExpand"
-            HorizontalOptions="Center" />
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="Center" />
             <Entry Placeholder="" TextChanged="CommentEntry_TextChanged" Margin="10" />
         </StackLayout>
         <Button Text="Send"

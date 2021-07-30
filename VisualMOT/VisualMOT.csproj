@@ -29,6 +29,7 @@
     <PackageReference Include="Syncfusion.Xamarin.SfBusyIndicator" Version="18.4.0.30" />
     <PackageReference Include="Syncfusion.Xamarin.SfComboBox" Version="18.4.0.30" />
     <PackageReference Include="Syncfusion.Xamarin.SfListView" Version="18.4.0.30" />
+    <PackageReference Include="Syncfusion.Xamarin.SfTabView" Version="18.4.0.30" />
     <PackageReference Include="Xamarin.Forms" Version="4.8.0.1687" />
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
   </ItemGroup>

@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VisualMOT.Android", "Visual
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VisualMOT.iOS", "VisualMOT.iOS\VisualMOT.iOS.csproj", "{485413A9-DA0B-43AC-9A1E-6B53782349EF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VisualMOT", "VisualMOT\VisualMOT.csproj", "{7AE5A421-87A4-49B5-A3DF-E3CD926E7896}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VisualMOT", "VisualMOT\VisualMOT.csproj", "{7AE5A421-87A4-49B5-A3DF-E3CD926E7896}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

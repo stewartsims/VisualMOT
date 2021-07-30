@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "2OwS+qGc8DFcP9idW1yAlVgjNR6CYX2ObKWrJkwLM8EApVISQ4spzTxM1WzNRlsQ0gT+EmNXHuoL5rXBBARSQQ==",
+  "dgSpecHash": "Zb2BoGng9eWDurzE9xJ432gFbIm5o8/tHXsk+ClCYe9Em6NDPdcrXVosCsZ3/zbrt00NSAioG8z7LecW+mFBXQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\stewa\\Documents\\Projects\\VisualMOT\\VisualMOT.iOS\\VisualMOT.iOS.csproj",
   "expectedPackageFiles": [
@@ -18,6 +18,7 @@
     "C:\\Users\\stewa\\.nuget\\packages\\syncfusion.xamarin.sfbusyindicator\\18.4.0.30\\syncfusion.xamarin.sfbusyindicator.18.4.0.30.nupkg.sha512",
     "C:\\Users\\stewa\\.nuget\\packages\\syncfusion.xamarin.sfcombobox\\18.4.0.30\\syncfusion.xamarin.sfcombobox.18.4.0.30.nupkg.sha512",
     "C:\\Users\\stewa\\.nuget\\packages\\syncfusion.xamarin.sflistview\\18.4.0.30\\syncfusion.xamarin.sflistview.18.4.0.30.nupkg.sha512",
+    "C:\\Users\\stewa\\.nuget\\packages\\syncfusion.xamarin.sftabview\\18.4.0.30\\syncfusion.xamarin.sftabview.18.4.0.30.nupkg.sha512",
     "C:\\Users\\stewa\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
     "C:\\Users\\stewa\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
     "C:\\Users\\stewa\\.nuget\\packages\\system.reflection.typeextensions\\4.4.0\\system.reflection.typeextensions.4.4.0.nupkg.sha512",

@@ -10,6 +10,7 @@ using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -25,6 +26,7 @@ namespace VisualMOT
     {
         public IFileHelper FileHelper = DependencyService.Get<IFileHelper>();
         private string CustomerEmail { get; set; }
+        private string CustomerSMS { get; set; }
         private string YourEmail { get; set; }
         private string Comment { get; set; }
 
@@ -39,6 +41,10 @@ namespace VisualMOT
         private void CustomerEmailEntry_TextChanged(object sender, TextChangedEventArgs e)
         {
             CustomerEmail = e.NewTextValue;
+        }
+        private void CustomerSMSEntry_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            CustomerSMS = e.NewTextValue;
         }
         private void YourEmailEntry_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -91,7 +97,7 @@ namespace VisualMOT
             var multipart = new Multipart("mixed");
 
             string fileNamePrefix = MOTHistory.registration + "_" + MOTHistory.LastTest.motTestNumber;
-            List<string> imageFileNames = new List<string>();
+            List<string> imageFiles = new List<string>();
 
             int i = 1;
             foreach (MOTItem item in MOTHistory.Items.Where(item => item.image != null))
@@ -100,7 +106,7 @@ namespace VisualMOT
                 string contentId = Guid.NewGuid().ToString();
                 string file = Path.Combine(FileSystem.CacheDirectory, contentId);
                 File.WriteAllBytes(file, item.image);
-                imageFileNames.Add(file);
+                imageFiles.Add(file);
 
                 multipart.Add(new MimePart("image", "jpg")
                 {
@@ -148,7 +154,8 @@ namespace VisualMOT
 
             templator.SetAttribute("items", string.Join("\n", items));
             string body = templator.ToString();
-            string bodyFile = Path.Combine(FileSystem.CacheDirectory, fileNamePrefix + ".html");
+            string bodyFileName = Guid.NewGuid().ToString() + ".html";
+            string bodyFile = Path.Combine(FileSystem.CacheDirectory, bodyFileName);
             File.WriteAllText(bodyFile, body.Replace("cid:",""));
 
             int port = System.Int32.Parse(Constants.MailPort);
@@ -178,9 +185,16 @@ namespace VisualMOT
 
             try
             {
-                client.Send(message);
-                //SendViaFTP(bodyFile, imageFileNames);
-                return true;
+                if (!string.IsNullOrEmpty(CustomerEmail) || !string.IsNullOrEmpty(YourEmail))
+                {
+                    client.Send(message);
+                }
+                bool sendSuccess = true;
+                if (CustomerSMS != null)
+                {
+                    sendSuccess = SendViaFTP(bodyFile, bodyFileName, imageFiles);
+                }
+                return sendSuccess;
             }
             catch (Exception ex)
             {
@@ -189,15 +203,34 @@ namespace VisualMOT
             }
         }
 
-        private void SendViaFTP(string bodyFileName, List<string> imageFileNames)
+        private bool SendViaFTP(string bodyFile, string bodyFileName, List<string> imageFiles)
         {
-            string bodyResponse = DependencyService.Get<IFtpWebRequest>().Upload(Constants.FTPHost, bodyFileName, Constants.FTPUserName, Constants.FTPPassword, Constants.FTPPath);
+            string bodyResponse = DependencyService.Get<IFtpWebRequest>().Upload(Constants.FTPHost, bodyFile, Constants.FTPUserName, Constants.FTPPassword, Constants.FTPPath);
             Console.WriteLine(bodyResponse);
-            foreach (string imageFileName in imageFileNames)
+            foreach (string imageFile in imageFiles)
             {
-                string imageResponse = DependencyService.Get<IFtpWebRequest>().Upload(Constants.FTPHost, imageFileName, Constants.FTPUserName, Constants.FTPPassword, Constants.FTPPath);
+                string imageResponse = DependencyService.Get<IFtpWebRequest>().Upload(Constants.FTPHost, imageFile, Constants.FTPUserName, Constants.FTPPassword, Constants.FTPPath);
                 Console.WriteLine(imageResponse);
             }
+
+            string message =
+            "{" +
+                "\"sender\": \"" + Constants.SMSSender + "\", " +
+                "\"destination\": \"" + CustomerSMS + "\", " +
+                "\"content\": \"" + Constants.SMSMessage + bodyFileName + "\" " +
+            "}";
+
+            using (HttpClient sendRequest = new HttpClient())
+            {
+                sendRequest.DefaultRequestHeaders.Add("Authorization", Constants.SMSApiKey);
+                HttpResponseMessage sendResponseMessage = sendRequest.PostAsync(Constants.SMSApiURL + "/message/send", new StringContent(message, Encoding.UTF8, "application/json")).Result;
+                if (sendResponseMessage.IsSuccessStatusCode)
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
     }
 }

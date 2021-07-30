@@ -18,6 +18,7 @@
           "Syncfusion.Xamarin.SfBusyIndicator": "18.4.0.30",
           "Syncfusion.Xamarin.SfComboBox": "18.4.0.30",
           "Syncfusion.Xamarin.SfListView": "18.4.0.30",
+          "Syncfusion.Xamarin.SfTabView": "18.4.0.30",
           "Xamarin.Essentials": "1.6.1",
           "Xamarin.Forms": "4.8.0.1687"
         },
@@ -177,6 +178,18 @@
         },
         "runtime": {
           "lib/netstandard2.0/Syncfusion.SfListView.XForms.dll": {
+            "assemblyVersion": "18.4451.0.30",
+            "fileVersion": "18.4451.0.30"
+          }
+        }
+      },
+      "Syncfusion.Xamarin.SfTabView/18.4.0.30": {
+        "dependencies": {
+          "Syncfusion.Xamarin.Core": "18.4.0.30",
+          "Xamarin.Forms": "4.8.0.1687"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Syncfusion.SfTabView.XForms.dll": {
             "assemblyVersion": "18.4451.0.30",
             "fileVersion": "18.4451.0.30"
           }
@@ -410,6 +423,13 @@
       "sha512": "sha512-aNODeueE3iGlYKUYWvtHsZvdaOQDICLDu40BzYHnHhAOPeBKAkSwlGtlsBH4gdTvfh/JJ24wuiA1tSiDOJYDlQ==",
       "path": "syncfusion.xamarin.sflistview/18.4.0.30",
       "hashPath": "syncfusion.xamarin.sflistview.18.4.0.30.nupkg.sha512"
+    },
+    "Syncfusion.Xamarin.SfTabView/18.4.0.30": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-zGsc1qftNif/gYXcxWt4U4Y1saSuTQQ6Q6NGidICuppzTUCI5lDmRHO4Ximo+h4WzDqrODQgaV1VcYLO5PUSQQ==",
+      "path": "syncfusion.xamarin.sftabview/18.4.0.30",
+      "hashPath": "syncfusion.xamarin.sftabview.18.4.0.30.nupkg.sha512"
     },
     "System.Buffers/4.5.1": {
       "type": "package",

@@ -195,6 +195,21 @@
           "lib/MonoAndroid90/Syncfusion.SfListView.XForms.dll": {}
         }
       },
+      "Syncfusion.Xamarin.SfTabView/18.4.0.30": {
+        "type": "package",
+        "dependencies": {
+          "Syncfusion.Xamarin.Core": "18.4.0.30",
+          "Xamarin.Forms": "4.5.0.617"
+        },
+        "compile": {
+          "lib/MonoAndroid90/Syncfusion.SfTabView.XForms.Android.dll": {},
+          "lib/MonoAndroid90/Syncfusion.SfTabView.XForms.dll": {}
+        },
+        "runtime": {
+          "lib/MonoAndroid90/Syncfusion.SfTabView.XForms.Android.dll": {},
+          "lib/MonoAndroid90/Syncfusion.SfTabView.XForms.dll": {}
+        }
+      },
       "System.Buffers/4.5.1": {
         "type": "package",
         "compile": {
@@ -1050,6 +1065,7 @@
           "Syncfusion.Xamarin.SfBusyIndicator": "18.4.0.30",
           "Syncfusion.Xamarin.SfComboBox": "18.4.0.30",
           "Syncfusion.Xamarin.SfListView": "18.4.0.30",
+          "Syncfusion.Xamarin.SfTabView": "18.4.0.30",
           "Xamarin.Essentials": "1.6.1",
           "Xamarin.Forms": "4.8.0.1687"
         },
@@ -1514,6 +1530,38 @@
         "lib/uap10.0/Syncfusion.SfListView.XForms.xml",
         "syncfusion.xamarin.sflistview.18.4.0.30.nupkg.sha512",
         "syncfusion.xamarin.sflistview.nuspec"
+      ]
+    },
+    "Syncfusion.Xamarin.SfTabView/18.4.0.30": {
+      "sha512": "zGsc1qftNif/gYXcxWt4U4Y1saSuTQQ6Q6NGidICuppzTUCI5lDmRHO4Ximo+h4WzDqrODQgaV1VcYLO5PUSQQ==",
+      "type": "package",
+      "path": "syncfusion.xamarin.sftabview/18.4.0.30",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/MonoAndroid10.0/Syncfusion.SfTabView.XForms.Android.dll",
+        "lib/MonoAndroid10.0/Syncfusion.SfTabView.XForms.dll",
+        "lib/MonoAndroid10.0/Syncfusion.SfTabView.XForms.xml",
+        "lib/MonoAndroid90/Syncfusion.SfTabView.XForms.Android.dll",
+        "lib/MonoAndroid90/Syncfusion.SfTabView.XForms.dll",
+        "lib/MonoAndroid90/Syncfusion.SfTabView.XForms.xml",
+        "lib/Xamarin.iOS10/Syncfusion.SfTabView.XForms.dll",
+        "lib/Xamarin.iOS10/Syncfusion.SfTabView.XForms.iOS.dll",
+        "lib/Xamarin.iOS10/Syncfusion.SfTabView.XForms.xml",
+        "lib/netstandard2.0/Syncfusion.SfTabView.XForms.dll",
+        "lib/netstandard2.0/Syncfusion.SfTabView.XForms.xml",
+        "lib/portable-win+net45+wp80+win81+wpa81/Syncfusion.SfTabView.XForms.dll",
+        "lib/portable-win+net45+wp80+win81+wpa81/Syncfusion.SfTabView.XForms.xml",
+        "lib/uap10.0/Syncfusion.SfTabView.XForms.UWP.XML",
+        "lib/uap10.0/Syncfusion.SfTabView.XForms.UWP.dll",
+        "lib/uap10.0/Syncfusion.SfTabView.XForms.UWP.pri",
+        "lib/uap10.0/Syncfusion.SfTabView.XForms.UWP/Properties/Syncfusion.SfTabView.XForms.UWP.rd.xml",
+        "lib/uap10.0/Syncfusion.SfTabView.XForms.UWP/Syncfusion.SfTabView.XForms.UWP.xr.xml",
+        "lib/uap10.0/Syncfusion.SfTabView.XForms.UWP/Themes/Generic.xaml",
+        "lib/uap10.0/Syncfusion.SfTabView.XForms.dll",
+        "lib/uap10.0/Syncfusion.SfTabView.XForms.xml",
+        "syncfusion.xamarin.sftabview.18.4.0.30.nupkg.sha512",
+        "syncfusion.xamarin.sftabview.nuspec"
       ]
     },
     "System.Buffers/4.5.1": {
@@ -2889,6 +2937,7 @@
       "SkiaSharp >= 2.80.2",
       "Syncfusion.Xamarin.SfComboBox >= 18.4.0.30",
       "Syncfusion.Xamarin.SfListView >= 18.4.0.30",
+      "Syncfusion.Xamarin.SfTabView >= 18.4.0.30",
       "VisualMOT >= 1.0.0",
       "Xamarin.Essentials >= 1.6.1",
       "Xamarin.Forms >= 4.8.0.1687"
@@ -2953,6 +3002,10 @@
             "version": "[18.4.0.30, )"
           },
           "Syncfusion.Xamarin.SfListView": {
+            "target": "Package",
+            "version": "[18.4.0.30, )"
+          },
+          "Syncfusion.Xamarin.SfTabView": {
             "target": "Package",
             "version": "[18.4.0.30, )"
           },

@@ -82,6 +82,10 @@
               "target": "Package",
               "version": "[18.4.0.30, )"
             },
+            "Syncfusion.Xamarin.SfTabView": {
+              "target": "Package",
+              "version": "[18.4.0.30, )"
+            },
             "Xamarin.Essentials": {
               "target": "Package",
               "version": "[1.6.1, )"
