@@ -2,6 +2,7 @@
 using MailKit.Security;
 using MimeKit;
 using Org.Reddragonit.Stringtemplate;
+using Plugin.InAppBilling;
 using Plugin.Toast;
 using Syncfusion.SfBusyIndicator.XForms;
 using System;
@@ -32,6 +33,7 @@ namespace VisualMOT
 
         private MOTHistory MOTHistory { get; set; }
 
+        private InAppBillingPurchase InAppPurchase { get; set; }
 
         public SendPage(MOTHistory motHistory)
         {
@@ -76,14 +78,75 @@ namespace VisualMOT
 
         private void Button_Clicked(object sender, EventArgs e)
         {
+            bool? requiresPurchase = false;
+            try
+            {
+                requiresPurchase = Application.Current.Properties[Constants.RequiresPurchaseFlag] as bool?;
+            }
+            catch (KeyNotFoundException ex)
+            {
+                Console.WriteLine("Free purchase");
+            }
+            if (requiresPurchase.Value)
+            {
+                /*
+                if (!Purchase().Result)
+                {
+                    DisplayAlert("Purchase error", "Purchase could not be completed. You will not be charged. Please check internet connection and try again", "OK");
+                    return;
+                }
+                */
+            }
             SfBusyIndicator busyIndicator = new SfBusyIndicator();
             busyIndicator.AnimationType = AnimationTypes.Gear;
             busyIndicator.IsBusy = true;
             Container.Children.Add(busyIndicator);
-            EmailCommand.Execute(busyIndicator);
+            SendCommand.Execute(busyIndicator);
         }
 
-        public ICommand EmailCommand
+        public async Task<bool> Purchase()
+        {
+            try
+            {
+                var productId = Constants.BillingProductId;
+
+                var connected = await CrossInAppBilling.Current.ConnectAsync();
+
+                if (!connected)
+                {
+                    //Couldn't connect to billing, could be offline, alert user
+                    return false;
+                }
+
+                //try to purchase item
+                var purchase = await CrossInAppBilling.Current.PurchaseAsync(productId, ItemType.InAppPurchase);
+                if (purchase == null)
+                {
+                    //Not purchased, alert the user
+                    return false;
+                }
+                else
+                {
+                    //Purchased, save this information
+                    var id = purchase.Id;
+                    var token = purchase.PurchaseToken;
+                    var state = purchase.State;
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                //Something bad has occurred, alert user
+                return false;
+            }
+            finally
+            {
+                //Disconnect, it is okay if we never connected
+                await CrossInAppBilling.Current.DisconnectAsync();
+            }
+        }
+
+        public ICommand SendCommand
         {
             get
             {
@@ -91,9 +154,18 @@ namespace VisualMOT
                 {
                     SfBusyIndicator loadingSpinner = (SfBusyIndicator)parameter;
                     loadingSpinner.IsBusy = true;
-                    bool success = await EmailTask();
+                    bool success = await SendTask();
                     if (success)
                     {
+                        // Called after we have a successful purchase or later on (must call ConnectAsync() ahead of time):
+                        if (DeviceInfo.Platform == DevicePlatform.Android)
+                        {
+                            var consumedItem = await CrossInAppBilling.Current.ConsumePurchaseAsync(InAppPurchase.ProductId, InAppPurchase.PurchaseToken);
+                            if (consumedItem != null)
+                            {
+                                // Item has been consumed
+                            }
+                        }
                         CrossToastPopUp.Current.ShowToastSuccess("The MOT report has been successfully sent. Thank you for using Visual MOT");
                         loadingSpinner.IsBusy = false;
                         await Navigation.PopAsync();
@@ -107,7 +179,7 @@ namespace VisualMOT
             }
         }
 
-        private async Task<bool> EmailTask()
+        private async Task<bool> SendTask()
         {
             MimeMessage message = new MimeMessage();
 
@@ -215,7 +287,7 @@ namespace VisualMOT
                 }
                 if (sendSuccess)
                 {
-                    Application.Current.Properties[Constants.FreeFlagProperty] = false;
+                    Application.Current.Properties[Constants.RequiresPurchaseFlag] = true;
                     Application.Current.SavePropertiesAsync();
                 }
                 return sendSuccess;
