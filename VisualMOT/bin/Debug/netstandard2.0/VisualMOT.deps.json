@@ -13,6 +13,7 @@
           "NETStandard.Library": "2.0.3",
           "Newtonsoft.Json": "12.0.3",
           "Org.Reddragonit.Stringtemplate": "1.0.0",
+          "Plugin.InAppBilling": "4.0.2",
           "Plugin.Toast": "2.2.0",
           "SkiaSharp": "2.80.2",
           "Syncfusion.Xamarin.SfBusyIndicator": "18.4.0.30",
@@ -70,6 +71,17 @@
       "Org.Reddragonit.Stringtemplate/1.0.0": {
         "runtime": {
           "lib/netstandard2.0/StringTemplate.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "Plugin.InAppBilling/4.0.2": {
+        "dependencies": {
+          "System.ValueTuple": "4.5.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Plugin.InAppBilling.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -277,6 +289,7 @@
           }
         }
       },
+      "System.ValueTuple/4.5.0": {},
       "Xamarin.Essentials/1.6.1": {
         "dependencies": {
           "System.Numerics.Vectors": "4.5.0"
@@ -353,6 +366,13 @@
       "sha512": "sha512-0G3pZFUGdMa9Iq+XX/5yT8jHdPY8RUHZy3QsZ8hysLDgtIM1O5prTu0IQiLO3gsfMcqkwrwggVNegOfUxEHe6Q==",
       "path": "org.reddragonit.stringtemplate/1.0.0",
       "hashPath": "org.reddragonit.stringtemplate.1.0.0.nupkg.sha512"
+    },
+    "Plugin.InAppBilling/4.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-G0aDpbWTPYCuZ0kcwdtBcBrdxqWiQlgJUkzYoSEC02WvWwt9/T88+CbcSBu274riXy1Wtr1dg0ouvcaVSC4vfw==",
+      "path": "plugin.inappbilling/4.0.2",
+      "hashPath": "plugin.inappbilling.4.0.2.nupkg.sha512"
     },
     "Plugin.Toast/2.2.0": {
       "type": "package",
@@ -493,6 +513,13 @@
       "sha512": "sha512-6JX7ZdaceBiLKLkYt8zJcp4xTJd1uYyXXEkPw6mnlUIjh1gZPIVKPtRXPmY5kLf6DwZmf5YLwR3QUrRonl7l0A==",
       "path": "system.text.encoding.codepages/4.4.0",
       "hashPath": "system.text.encoding.codepages.4.4.0.nupkg.sha512"
+    },
+    "System.ValueTuple/4.5.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-okurQJO6NRE/apDIP23ajJ0hpiNmJ+f0BwOlB/cSqTLQlw5upkf+5+96+iG2Jw40G1fCVCyPz/FhIABUjMR+RQ==",
+      "path": "system.valuetuple/4.5.0",
+      "hashPath": "system.valuetuple.4.5.0.nupkg.sha512"
     },
     "Xamarin.Essentials/1.6.1": {
       "type": "package",

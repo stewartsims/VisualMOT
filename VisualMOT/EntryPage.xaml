@@ -479,7 +479,7 @@
             <combobox:SfComboBox x:Name="VehicleMakeComboBox" BackgroundColor="#FFFFFF" HeightRequest="40" MaximumDropDownHeight="200" Margin="10" 
                                          IsEditableMode="true" DataSource="{StaticResource Makes}" SelectionChanged="VehicleMakeComboBox_SelectionChanged"  />
         </StackLayout>
-        <Button Text="Continue"
+        <Button Text="Continue" BackgroundColor="#75A0FF" TextColor="White"
                 VerticalOptions="CenterAndExpand"
                 HorizontalOptions="Fill"
                 Clicked="Button_Clicked" />

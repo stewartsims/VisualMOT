@@ -23,14 +23,14 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "monoandroid90"
+          "monoandroid10.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "monoandroid90": {
+          "monoandroid10.0": {
             "projectReferences": {
               "C:\\Users\\stewa\\Documents\\Projects\\VisualMOT\\VisualMOT\\VisualMOT.csproj": {
                 "projectPath": "C:\\Users\\stewa\\Documents\\Projects\\VisualMOT\\VisualMOT\\VisualMOT.csproj"
@@ -40,7 +40,7 @@
         }
       },
       "frameworks": {
-        "monoandroid90": {
+        "monoandroid10.0": {
           "dependencies": {
             "MailKit": {
               "target": "Package",
@@ -49,6 +49,10 @@
             "Org.Reddragonit.Stringtemplate": {
               "target": "Package",
               "version": "[1.0.0, )"
+            },
+            "Plugin.InAppBilling": {
+              "target": "Package",
+              "version": "[4.0.2, )"
             },
             "SkiaSharp": {
               "target": "Package",
@@ -135,6 +139,10 @@
             "Org.Reddragonit.Stringtemplate": {
               "target": "Package",
               "version": "[1.0.0, )"
+            },
+            "Plugin.InAppBilling": {
+              "target": "Package",
+              "version": "[4.0.2, )"
             },
             "Plugin.Toast": {
               "target": "Package",

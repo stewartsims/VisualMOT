@@ -54,6 +54,21 @@
           "lib/netstandard2.0/StringTemplate.dll": {}
         }
       },
+      "Plugin.InAppBilling/4.0.2": {
+        "type": "package",
+        "dependencies": {
+          "System.ValueTuple": "4.5.0"
+        },
+        "frameworkAssemblies": [
+          "System.Drawing.Common.dll"
+        ],
+        "compile": {
+          "lib/xamarinios10/Plugin.InAppBilling.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Plugin.InAppBilling.dll": {}
+        }
+      },
       "Plugin.Toast/2.2.0": {
         "type": "package",
         "compile": {
@@ -267,6 +282,15 @@
           }
         }
       },
+      "System.ValueTuple/4.5.0": {
+        "type": "package",
+        "compile": {
+          "ref/xamarinios10/_._": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/_._": {}
+        }
+      },
       "Xamarin.Essentials/1.6.1": {
         "type": "package",
         "dependencies": {
@@ -412,6 +436,7 @@
           "MailKit": "2.13.0",
           "Newtonsoft.Json": "12.0.3",
           "Org.Reddragonit.Stringtemplate": "1.0.0",
+          "Plugin.InAppBilling": "4.0.2",
           "Plugin.Toast": "2.2.0",
           "SkiaSharp": "2.80.2",
           "Syncfusion.Xamarin.SfBusyIndicator": "18.4.0.30",
@@ -480,6 +505,21 @@
         },
         "runtime": {
           "lib/netstandard2.0/StringTemplate.dll": {}
+        }
+      },
+      "Plugin.InAppBilling/4.0.2": {
+        "type": "package",
+        "dependencies": {
+          "System.ValueTuple": "4.5.0"
+        },
+        "frameworkAssemblies": [
+          "System.Drawing.Common.dll"
+        ],
+        "compile": {
+          "lib/xamarinios10/Plugin.InAppBilling.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Plugin.InAppBilling.dll": {}
         }
       },
       "Plugin.Toast/2.2.0": {
@@ -665,6 +705,15 @@
           "runtimes/win/lib/netstandard2.0/System.Text.Encoding.CodePages.dll": {}
         }
       },
+      "System.ValueTuple/4.5.0": {
+        "type": "package",
+        "compile": {
+          "ref/xamarinios10/_._": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/_._": {}
+        }
+      },
       "Xamarin.Essentials/1.6.1": {
         "type": "package",
         "dependencies": {
@@ -810,6 +859,7 @@
           "MailKit": "2.13.0",
           "Newtonsoft.Json": "12.0.3",
           "Org.Reddragonit.Stringtemplate": "1.0.0",
+          "Plugin.InAppBilling": "4.0.2",
           "Plugin.Toast": "2.2.0",
           "SkiaSharp": "2.80.2",
           "Syncfusion.Xamarin.SfBusyIndicator": "18.4.0.30",
@@ -878,6 +928,21 @@
         },
         "runtime": {
           "lib/netstandard2.0/StringTemplate.dll": {}
+        }
+      },
+      "Plugin.InAppBilling/4.0.2": {
+        "type": "package",
+        "dependencies": {
+          "System.ValueTuple": "4.5.0"
+        },
+        "frameworkAssemblies": [
+          "System.Drawing.Common.dll"
+        ],
+        "compile": {
+          "lib/xamarinios10/Plugin.InAppBilling.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Plugin.InAppBilling.dll": {}
         }
       },
       "Plugin.Toast/2.2.0": {
@@ -1066,6 +1131,15 @@
           "lib/xamarinios10/_._": {}
         }
       },
+      "System.ValueTuple/4.5.0": {
+        "type": "package",
+        "compile": {
+          "ref/xamarinios10/_._": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/_._": {}
+        }
+      },
       "Xamarin.Essentials/1.6.1": {
         "type": "package",
         "dependencies": {
@@ -1211,6 +1285,7 @@
           "MailKit": "2.13.0",
           "Newtonsoft.Json": "12.0.3",
           "Org.Reddragonit.Stringtemplate": "1.0.0",
+          "Plugin.InAppBilling": "4.0.2",
           "Plugin.Toast": "2.2.0",
           "SkiaSharp": "2.80.2",
           "Syncfusion.Xamarin.SfBusyIndicator": "18.4.0.30",
@@ -1279,6 +1354,21 @@
         },
         "runtime": {
           "lib/netstandard2.0/StringTemplate.dll": {}
+        }
+      },
+      "Plugin.InAppBilling/4.0.2": {
+        "type": "package",
+        "dependencies": {
+          "System.ValueTuple": "4.5.0"
+        },
+        "frameworkAssemblies": [
+          "System.Drawing.Common.dll"
+        ],
+        "compile": {
+          "lib/xamarinios10/Plugin.InAppBilling.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Plugin.InAppBilling.dll": {}
         }
       },
       "Plugin.Toast/2.2.0": {
@@ -1467,6 +1557,15 @@
           "lib/xamarinios10/_._": {}
         }
       },
+      "System.ValueTuple/4.5.0": {
+        "type": "package",
+        "compile": {
+          "ref/xamarinios10/_._": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/_._": {}
+        }
+      },
       "Xamarin.Essentials/1.6.1": {
         "type": "package",
         "dependencies": {
@@ -1612,6 +1711,7 @@
           "MailKit": "2.13.0",
           "Newtonsoft.Json": "12.0.3",
           "Org.Reddragonit.Stringtemplate": "1.0.0",
+          "Plugin.InAppBilling": "4.0.2",
           "Plugin.Toast": "2.2.0",
           "SkiaSharp": "2.80.2",
           "Syncfusion.Xamarin.SfBusyIndicator": "18.4.0.30",
@@ -1740,6 +1840,34 @@
         "lib/netstandard2.0/StringTemplate.dll",
         "org.reddragonit.stringtemplate.1.0.0.nupkg.sha512",
         "org.reddragonit.stringtemplate.nuspec"
+      ]
+    },
+    "Plugin.InAppBilling/4.0.2": {
+      "sha512": "G0aDpbWTPYCuZ0kcwdtBcBrdxqWiQlgJUkzYoSEC02WvWwt9/T88+CbcSBu274riXy1Wtr1dg0ouvcaVSC4vfw==",
+      "type": "package",
+      "path": "plugin.inappbilling/4.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/monoandroid10.0/Plugin.InAppBilling.dll",
+        "lib/monoandroid10.0/Plugin.InAppBilling.pdb",
+        "lib/monoandroid10.0/Plugin.InAppBilling.xml",
+        "lib/netstandard2.0/Plugin.InAppBilling.dll",
+        "lib/netstandard2.0/Plugin.InAppBilling.pdb",
+        "lib/netstandard2.0/Plugin.InAppBilling.xml",
+        "lib/uap10.0.16299/Plugin.InAppBilling.dll",
+        "lib/uap10.0.16299/Plugin.InAppBilling.pdb",
+        "lib/uap10.0.16299/Plugin.InAppBilling.pri",
+        "lib/uap10.0.16299/Plugin.InAppBilling.xml",
+        "lib/xamarinios10/Plugin.InAppBilling.dll",
+        "lib/xamarinios10/Plugin.InAppBilling.pdb",
+        "lib/xamarinios10/Plugin.InAppBilling.xml",
+        "lib/xamarintvos10/Plugin.InAppBilling.dll",
+        "lib/xamarintvos10/Plugin.InAppBilling.pdb",
+        "lib/xamarintvos10/Plugin.InAppBilling.xml",
+        "plugin.inappbilling.4.0.2.nupkg.sha512",
+        "plugin.inappbilling.nuspec",
+        "readme.txt"
       ]
     },
     "Plugin.Toast/2.2.0": {
@@ -2355,6 +2483,50 @@
         "version.txt"
       ]
     },
+    "System.ValueTuple/4.5.0": {
+      "sha512": "okurQJO6NRE/apDIP23ajJ0hpiNmJ+f0BwOlB/cSqTLQlw5upkf+5+96+iG2Jw40G1fCVCyPz/FhIABUjMR+RQ==",
+      "type": "package",
+      "path": "system.valuetuple/4.5.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/net461/System.ValueTuple.dll",
+        "lib/net461/System.ValueTuple.xml",
+        "lib/net47/System.ValueTuple.dll",
+        "lib/net47/System.ValueTuple.xml",
+        "lib/netcoreapp2.0/_._",
+        "lib/netstandard1.0/System.ValueTuple.dll",
+        "lib/netstandard1.0/System.ValueTuple.xml",
+        "lib/netstandard2.0/_._",
+        "lib/portable-net40+sl4+win8+wp8/System.ValueTuple.dll",
+        "lib/portable-net40+sl4+win8+wp8/System.ValueTuple.xml",
+        "lib/uap10.0.16299/_._",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "lib/xamarintvos10/_._",
+        "lib/xamarinwatchos10/_._",
+        "ref/MonoAndroid10/_._",
+        "ref/MonoTouch10/_._",
+        "ref/net461/System.ValueTuple.dll",
+        "ref/net47/System.ValueTuple.dll",
+        "ref/netcoreapp2.0/_._",
+        "ref/netstandard2.0/_._",
+        "ref/portable-net40+sl4+win8+wp8/System.ValueTuple.dll",
+        "ref/uap10.0.16299/_._",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "ref/xamarintvos10/_._",
+        "ref/xamarinwatchos10/_._",
+        "system.valuetuple.4.5.0.nupkg.sha512",
+        "system.valuetuple.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
     "Xamarin.Essentials/1.6.1": {
       "sha512": "gG1Bp4j4bpJQ0dp9MeBJQJ9c8xULauIlhc7Cx5Qw4J2K1c+4Glq5n+gkb9Pm0UA/CevXVqLK5ZXmZkuYI52FgA==",
       "type": "package",
@@ -2732,6 +2904,7 @@
     "Xamarin.iOS,Version=v1.0": [
       "MailKit >= 2.13.0",
       "Org.Reddragonit.Stringtemplate >= 1.0.0",
+      "Plugin.InAppBilling >= 4.0.2",
       "SkiaSharp >= 2.80.2",
       "Syncfusion.Xamarin.SfComboBox >= 18.4.0.30",
       "Syncfusion.Xamarin.SfListView >= 18.4.0.30",
@@ -2790,6 +2963,10 @@
           "Org.Reddragonit.Stringtemplate": {
             "target": "Package",
             "version": "[1.0.0, )"
+          },
+          "Plugin.InAppBilling": {
+            "target": "Package",
+            "version": "[4.0.2, )"
           },
           "SkiaSharp": {
             "target": "Package",

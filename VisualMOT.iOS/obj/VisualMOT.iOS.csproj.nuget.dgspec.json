@@ -50,6 +50,10 @@
               "target": "Package",
               "version": "[1.0.0, )"
             },
+            "Plugin.InAppBilling": {
+              "target": "Package",
+              "version": "[4.0.2, )"
+            },
             "SkiaSharp": {
               "target": "Package",
               "version": "[2.80.2, )"
@@ -146,6 +150,10 @@
             "Org.Reddragonit.Stringtemplate": {
               "target": "Package",
               "version": "[1.0.0, )"
+            },
+            "Plugin.InAppBilling": {
+              "target": "Package",
+              "version": "[4.0.2, )"
             },
             "Plugin.Toast": {
               "target": "Package",

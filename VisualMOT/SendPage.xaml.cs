@@ -32,10 +32,29 @@ namespace VisualMOT
 
         private MOTHistory MOTHistory { get; set; }
 
+
         public SendPage(MOTHistory motHistory)
         {
             InitializeComponent();
             MOTHistory = motHistory;
+            string sendMethod = null;
+            try
+            {
+                sendMethod = Application.Current.Properties[Constants.SendMethodProperty] as string;
+            }
+            catch (KeyNotFoundException e)
+            {
+                Console.WriteLine("Send method not yet chosen");
+            }
+            if (sendMethod != null && sendMethod == "SMS")
+            {
+                Tabs.SelectedIndex = 1;
+                SendButton.Text = "Send SMS";
+            }
+            else
+            {
+                SendButton.Text = "Send Email";
+            }
         }
 
         private void CustomerEmailEntry_TextChanged(object sender, TextChangedEventArgs e)
@@ -194,6 +213,11 @@ namespace VisualMOT
                 {
                     sendSuccess = SendViaFTP(bodyFile, bodyFileName, imageFiles);
                 }
+                if (sendSuccess)
+                {
+                    Application.Current.Properties[Constants.FreeFlagProperty] = false;
+                    Application.Current.SavePropertiesAsync();
+                }
                 return sendSuccess;
             }
             catch (Exception ex)
@@ -231,6 +255,13 @@ namespace VisualMOT
             }
 
             return false;
+        }
+
+        private void SfTabView_SelectionChanged(object sender, Syncfusion.XForms.TabView.SelectionChangedEventArgs e)
+        {
+            SendButton.Text = "Send " + e.Name;
+            Application.Current.Properties[Constants.SendMethodProperty] = e.Name;
+            Application.Current.SavePropertiesAsync();
         }
     }
 }

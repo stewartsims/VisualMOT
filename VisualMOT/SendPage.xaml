@@ -5,7 +5,7 @@
              x:Class="VisualMOT.SendPage">
     
     <StackLayout x:Name="Container" Padding="10">
-        <tabView:SfTabView BackgroundColor="#FFD000">
+        <tabView:SfTabView x:Name="Tabs" BackgroundColor="#FFD000" SelectionChanged="SfTabView_SelectionChanged">
             <tabView:SfTabItem Title="Email">
                 <tabView:SfTabItem.Content>
                     <StackLayout Padding="10" BackgroundColor="#F2EFE6">
@@ -56,7 +56,7 @@
                 HorizontalOptions="Center" />
             <Entry Placeholder="" TextChanged="CommentEntry_TextChanged" Margin="10" />
         </StackLayout>
-        <Button Text="Send"
+        <Button x:Name="SendButton" BackgroundColor="#FFD000" 
             VerticalOptions="CenterAndExpand"
             HorizontalOptions="Fill"
             Clicked="Button_Clicked" />

@@ -20,7 +20,7 @@
             <Label Text="{Binding LastTestDisplayText }" FontAttributes="Bold" />
         </StackLayout>
         <ScrollView>
-            <syncfusion:SfListView x:Name="ItemsListView" ItemsSource="{Binding MOTItems}" ItemSize="200">
+            <syncfusion:SfListView x:Name="ItemsListView" ItemsSource="{Binding MOTItems}" ItemSize="200" SelectionMode="None">
                 <syncfusion:SfListView.DataSource>
                     <data:DataSource>
                         <data:DataSource.GroupDescriptors>
@@ -50,7 +50,7 @@
             </syncfusion:SfListView>
         </ScrollView>
         <StackLayout Padding="10">
-            <Button Text="Send"
+            <Button Text="Send" BackgroundColor="#75A0FF" TextColor="White"
                 VerticalOptions="CenterAndExpand"
                 HorizontalOptions="Center"
                 Clicked="SendButton_Clicked" />

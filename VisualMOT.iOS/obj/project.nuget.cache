@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Zb2BoGng9eWDurzE9xJ432gFbIm5o8/tHXsk+ClCYe9Em6NDPdcrXVosCsZ3/zbrt00NSAioG8z7LecW+mFBXQ==",
+  "dgSpecHash": "jtZevexGsmX2C8d5SvPNKogjsScwun6EJ+uwPs8zf91bkswPsSPGtU22ASQcAj/NamnPRweF8VIgYBvbDpliDQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\stewa\\Documents\\Projects\\VisualMOT\\VisualMOT.iOS\\VisualMOT.iOS.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,7 @@
     "C:\\Users\\stewa\\.nuget\\packages\\mimekit\\2.13.0\\mimekit.2.13.0.nupkg.sha512",
     "C:\\Users\\stewa\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
     "C:\\Users\\stewa\\.nuget\\packages\\org.reddragonit.stringtemplate\\1.0.0\\org.reddragonit.stringtemplate.1.0.0.nupkg.sha512",
+    "C:\\Users\\stewa\\.nuget\\packages\\plugin.inappbilling\\4.0.2\\plugin.inappbilling.4.0.2.nupkg.sha512",
     "C:\\Users\\stewa\\.nuget\\packages\\plugin.toast\\2.2.0\\plugin.toast.2.2.0.nupkg.sha512",
     "C:\\Users\\stewa\\.nuget\\packages\\portable.bouncycastle\\1.8.10\\portable.bouncycastle.1.8.10.nupkg.sha512",
     "C:\\Users\\stewa\\.nuget\\packages\\skiasharp\\2.80.2\\skiasharp.2.80.2.nupkg.sha512",
@@ -24,6 +25,7 @@
     "C:\\Users\\stewa\\.nuget\\packages\\system.reflection.typeextensions\\4.4.0\\system.reflection.typeextensions.4.4.0.nupkg.sha512",
     "C:\\Users\\stewa\\.nuget\\packages\\system.security.cryptography.pkcs\\4.7.0\\system.security.cryptography.pkcs.4.7.0.nupkg.sha512",
     "C:\\Users\\stewa\\.nuget\\packages\\system.text.encoding.codepages\\4.4.0\\system.text.encoding.codepages.4.4.0.nupkg.sha512",
+    "C:\\Users\\stewa\\.nuget\\packages\\system.valuetuple\\4.5.0\\system.valuetuple.4.5.0.nupkg.sha512",
     "C:\\Users\\stewa\\.nuget\\packages\\xamarin.essentials\\1.6.1\\xamarin.essentials.1.6.1.nupkg.sha512",
     "C:\\Users\\stewa\\.nuget\\packages\\xamarin.forms\\4.8.0.1687\\xamarin.forms.4.8.0.1687.nupkg.sha512"
   ],
