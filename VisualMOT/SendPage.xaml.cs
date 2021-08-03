@@ -161,7 +161,7 @@ namespace VisualMOT
                         if (DeviceInfo.Platform == DevicePlatform.Android)
                         {
                             var consumedItem = await CrossInAppBilling.Current.ConsumePurchaseAsync(InAppPurchase.ProductId, InAppPurchase.PurchaseToken);
-                            if (consumedItem != null)
+                            if (consumedItem)
                             {
                                 // Item has been consumed
                             }

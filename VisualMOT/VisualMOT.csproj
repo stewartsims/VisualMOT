@@ -12,11 +12,13 @@
 
   <ItemGroup>
     <None Remove="ItemTemplate.html" />
+    <None Remove="TemplateFail.html" />
     <None Remove="TemplatePass.html" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="ItemTemplate.html" />
+    <EmbeddedResource Include="TemplateFail.html" />
     <EmbeddedResource Include="TemplatePass.html" />
   </ItemGroup>
 
