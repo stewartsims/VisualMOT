@@ -24,6 +24,7 @@ namespace VisualMOT
     {
         public string VehicleRegistration { get; set; }
         public string VehicleMake { get; set; }
+        public string Version { get; set; }
 
         public EntryPage()
         {
@@ -49,14 +50,14 @@ namespace VisualMOT
                         CrossToastPopUp.Current.ShowToastWarning("Please enter a valid vehicle registration to continue");
                         return;
                     }
-                    if (VehicleMake == null)
-                    {
-                        CrossToastPopUp.Current.ShowToastWarning("Please enter the vehicle make to continue");
-                    }
                     SfBusyIndicator loadingSpinner = (SfBusyIndicator)parameter;
                     try
                     {
                         MOTHistory motHistory = await MOTHistoryTask();
+                        if (motHistory.make != VehicleMake)
+                        {
+                            await App.Current.MainPage.DisplayAlert("Vehicle doesn't match", "A match could not be found for this vehicle registration and make, please check and try again.", "Close");
+                        }
                         motHistory.LastTest = motHistory.motTests[0];
                         DateTime lastTestDate = DateTime.ParseExact(motHistory.LastTest.completedDate.Substring(0, 10), "yyyy.MM.dd", CultureInfo.InvariantCulture);
                         motHistory.LastTestDisplayText = motHistory.LastTest.motTestNumber + " " + lastTestDate.ToString("dd/MM/yyyy");
@@ -68,7 +69,7 @@ namespace VisualMOT
                     }
                     catch (Exception e)
                     {
-                        await App.Current.MainPage.DisplayAlert("Login error", "An error occured: \n\n" + e.Message, "Close");
+                        await App.Current.MainPage.DisplayAlert("Error", "An error occured: \n\n" + e.Message, "Close");
                         loadingSpinner.IsBusy = false;
                         return;
                     }
@@ -100,6 +101,10 @@ namespace VisualMOT
                     string json = response.Content.ReadAsStringAsync().Result;
                     //DisplayAlert("json", json, "ok");
                     return JsonConvert.DeserializeObject<List<MOTHistory>>(json)[0];
+                }
+                else if (response.StatusCode == HttpStatusCode.NotFound)
+                {
+                    throw new Exception("Vehicle not found\n\nThe MOT history for a vehicle with the given registration could not be found.");
                 }
                 else
                 {

@@ -24,7 +24,7 @@
         </StackLayout>
         <ScrollView>
             <StackLayout x:Name="Container" BackgroundColor="#F2EFE6" Padding="10" Spacing="0">
-                <Label Text="Add a comment - for example: 'Cost to repair: £149'" FontAttributes="Bold" />
+                <Label Text="Add a comment - for example: &quot;Cost to repair: £149&quot;" FontAttributes="Bold" />
                 <Label></Label>
                 <Label Text="{Binding Path=Text, Source={x:Reference AddCommentView}}" FontSize="Large" />
                 <Entry Text="{Binding Path=Comment, Source={x:Reference AddCommentView}}" FontSize="Large" />

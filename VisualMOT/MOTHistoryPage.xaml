@@ -52,7 +52,7 @@
         <StackLayout Padding="10">
             <Button Text="Send" BackgroundColor="#75A0FF" TextColor="White"
                 VerticalOptions="CenterAndExpand"
-                HorizontalOptions="Center"
+                HorizontalOptions="Fill"
                 Clicked="SendButton_Clicked" />
         </StackLayout>
     </StackLayout>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -15,5 +16,8 @@ namespace VisualMOT.Model
         public MOTTest LastTest { get; set; }
         public string LastTestDisplayText { get; set; }
         public string LastTestExpiryDate { get; set; }
+
+        [JsonConstructor]
+        public MOTHistory() { }
     }
 }

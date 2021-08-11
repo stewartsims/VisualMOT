@@ -464,8 +464,10 @@
         </x:Array>
     </ContentPage.Resources>
     <StackLayout x:Name="Container" Padding="10">
-        <!-- Place new controls here -->
-        <Image Source="VisualMOT.png" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" HeightRequest="150" />
+        <StackLayout HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
+            <Image Source="VisualMOT.png" HeightRequest="150" />
+            <Label Text="v0.3" HorizontalOptions="Center" />
+        </StackLayout>
         <StackLayout Padding="10">
             <Label Text="To get started enter the vehicle reg. below" 
                VerticalOptions="CenterAndExpand"
@@ -473,7 +475,7 @@
             <Entry Placeholder="AB12 XYZ" TextChanged="Entry_TextChanged" Margin="10" />
         </StackLayout>
         <StackLayout Padding="10">
-            <Label Text="Make of vehicle" 
+            <Label Text="Make of vehicle (optional)" 
                    VerticalOptions="CenterAndExpand"
                    HorizontalOptions="Center" />
             <combobox:SfComboBox x:Name="VehicleMakeComboBox" BackgroundColor="#FFFFFF" HeightRequest="40" MaximumDropDownHeight="200" Margin="10" 

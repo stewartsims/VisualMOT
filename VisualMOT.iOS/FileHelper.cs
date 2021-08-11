@@ -53,7 +53,7 @@ namespace VisualMOT.iOS
         public Stream GetSharedFile(string fileResourceName)
         {
             Type type = typeof(IFileHelper);
-            return type.Assembly.GetManifestResourceStream(fileResourceName);
+            return type.Assembly.GetManifestResourceStream("VisualMOT."+fileResourceName);
         }
     }
 }

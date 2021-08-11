@@ -15,10 +15,12 @@
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
           "C:\\Users\\stewa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -44,7 +46,11 @@
           "dependencies": {
             "MailKit": {
               "target": "Package",
-              "version": "[2.13.0, )"
+              "version": "[2.6.0, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.2, )"
             },
             "Org.Reddragonit.Stringtemplate": {
               "target": "Package",
@@ -92,10 +98,12 @@
         "outputPath": "C:\\Users\\stewa\\Documents\\Projects\\VisualMOT\\VisualMOT\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
           "C:\\Users\\stewa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -124,7 +132,7 @@
           "dependencies": {
             "MailKit": {
               "target": "Package",
-              "version": "[2.13.0, )"
+              "version": "[2.6.0, )"
             },
             "NETStandard.Library": {
               "suppressParent": "All",
@@ -134,7 +142,7 @@
             },
             "Newtonsoft.Json": {
               "target": "Package",
-              "version": "[12.0.3, )"
+              "version": "[12.0.2, )"
             },
             "Org.Reddragonit.Stringtemplate": {
               "target": "Package",
@@ -187,7 +195,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }

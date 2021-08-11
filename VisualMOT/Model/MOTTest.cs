@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -12,5 +13,8 @@ namespace VisualMOT.Model
         public string odometerValue { get; set; }
         public string odometerUnit { get; set; }
         public List<MOTItem> rfrAndComments { get; set; }
+
+        [JsonConstructor]
+        public MOTTest() { }
     }
 }

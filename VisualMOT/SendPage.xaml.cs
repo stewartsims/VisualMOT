@@ -76,7 +76,12 @@ namespace VisualMOT
             Comment = e.NewTextValue;
         }
 
-        private void Button_Clicked(object sender, EventArgs e)
+        async void BackButton_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PopModalAsync();
+        }
+
+        private void SendButton_Clicked(object sender, EventArgs e)
         {
             bool? requiresPurchase = false;
             try
@@ -99,7 +104,6 @@ namespace VisualMOT
             }
             SfBusyIndicator busyIndicator = new SfBusyIndicator();
             busyIndicator.AnimationType = AnimationTypes.Gear;
-            busyIndicator.IsBusy = true;
             Container.Children.Add(busyIndicator);
             SendCommand.Execute(busyIndicator);
         }
@@ -108,7 +112,7 @@ namespace VisualMOT
         {
             try
             {
-                var productId = Constants.BillingProductId;
+                var productId = SendButton.Text == "Send Email" ? Constants.EmailBillingProductId : Constants.SMSBillingProductId;
 
                 var connected = await CrossInAppBilling.Current.ConnectAsync();
 

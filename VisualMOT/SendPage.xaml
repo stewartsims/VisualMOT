@@ -49,16 +49,18 @@
                 </tabView:SfTabItem.Content>
             </tabView:SfTabItem>
         </tabView:SfTabView>
-        
+
         <StackLayout Padding="10">
-            <Label Text="Add an optional comment - for example 'Ready to collect' or 'Please call on 01234567890 to discuss'"
+            <Label Text="Add an optional comment - for example &quot;Ready to collect&quot; or &quot;Please call on 01234567890 to discuss&quot;"
                 VerticalOptions="CenterAndExpand"
                 HorizontalOptions="Center" />
             <Entry Placeholder="" TextChanged="CommentEntry_TextChanged" Margin="10" />
         </StackLayout>
-        <Button x:Name="SendButton" BackgroundColor="#FFD000" 
-            VerticalOptions="CenterAndExpand"
-            HorizontalOptions="Fill"
-            Clicked="Button_Clicked" />
+        <Grid ColumnDefinitions="1*, 1*" RowDefinitions="1*, Auto">
+            <Button x:Name="BackButton" BackgroundColor="#75A0FF" Grid.Column="0" Grid.Row="0" Text="Back"
+                Clicked="BackButton_Clicked" />
+            <Button x:Name="SendButton" BackgroundColor="#FFD000" TextColor="Black" Grid.Column="1" Grid.Row="0"
+                Clicked="SendButton_Clicked" />
+        </Grid>
     </StackLayout>
 </ContentPage>

@@ -25,14 +25,16 @@
 	<key>CFBundleDisplayName</key>
 	<string>VisualMOT</string>
 	<key>CFBundleIdentifier</key>
-	<string>uk.co.VisualMOT</string>
-	<key>CFBundleVersion</key>
-	<string>1.0</string>
+	<string>uk.co.visualmot</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>CFBundleName</key>
 	<string>VisualMOT</string>
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/AppIcon.appiconset</string>
+	<key>CFBundleShortVersionString</key>
+	<string>0.3</string>
+	<key>CFBundleVersion</key>
+	<string>3</string>
 </dict>
 </plist>
