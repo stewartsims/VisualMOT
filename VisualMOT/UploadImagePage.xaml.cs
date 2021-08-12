@@ -70,7 +70,7 @@ namespace VisualMOT
 
             if (ChosenImage != null)
             {
-                ImageText += "\n\nImage attached: " + ChosenImage.FullPath;
+                ImageText += "\n\n[ new photo attached ]";
                 OnPropertyChanged("ImageText");
             }
         }

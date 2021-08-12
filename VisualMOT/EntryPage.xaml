@@ -466,7 +466,7 @@
     <StackLayout x:Name="Container" Padding="10">
         <StackLayout HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
             <Image Source="VisualMOT.png" HeightRequest="150" />
-            <Label Text="v0.3" HorizontalOptions="Center" />
+            <Label Text="v0.4" HorizontalOptions="Center" />
         </StackLayout>
         <StackLayout Padding="10">
             <Label Text="To get started enter the vehicle reg. below" 

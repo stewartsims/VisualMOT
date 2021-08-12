@@ -54,9 +54,10 @@ namespace VisualMOT
                     try
                     {
                         MOTHistory motHistory = await MOTHistoryTask();
-                        if (motHistory.make != VehicleMake)
+                        if (!string.IsNullOrEmpty(VehicleMake) && (motHistory.make != VehicleMake))
                         {
                             await App.Current.MainPage.DisplayAlert("Vehicle doesn't match", "A match could not be found for this vehicle registration and make, please check and try again.", "Close");
+                            return;
                         }
                         motHistory.LastTest = motHistory.motTests[0];
                         DateTime lastTestDate = DateTime.ParseExact(motHistory.LastTest.completedDate.Substring(0, 10), "yyyy.MM.dd", CultureInfo.InvariantCulture);
