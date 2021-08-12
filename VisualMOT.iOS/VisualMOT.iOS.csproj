@@ -61,7 +61,7 @@
     <MtouchArch>ARM64</MtouchArch>
     <CodesignKey>Apple Distribution: Stewart Sims (D9UARFSPK6)</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
-    <BuildIpa>false</BuildIpa>
+    <BuildIpa>true</BuildIpa>
     <MtouchLink>SdkOnly</MtouchLink>
     <CodesignProvision>
     </CodesignProvision>

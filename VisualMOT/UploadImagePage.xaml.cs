@@ -67,6 +67,14 @@ namespace VisualMOT
             {
                 await App.Current.MainPage.DisplayAlert("Camera not available", "Camera not available on this device.", "Close");
             }
+            catch (PermissionException pEx)
+            {
+                await App.Current.MainPage.DisplayAlert("Permission not granted", "Please grant the app permission to use the camera to proceed.", "OK");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"CapturePhotoAsync THREW: {ex.Message}");
+            }
 
             if (ChosenImage != null)
             {
