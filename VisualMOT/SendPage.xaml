@@ -56,11 +56,17 @@
                 HorizontalOptions="Center" />
             <Entry Placeholder="" TextChanged="CommentEntry_TextChanged" Margin="10" />
         </StackLayout>
-        <Grid ColumnDefinitions="1*, 1*" RowDefinitions="1*, Auto">
+        <Grid x:Name="SendBlock" ColumnDefinitions="1*, 1*" RowDefinitions="1*, Auto">
             <Button x:Name="BackButton" BackgroundColor="#75A0FF" TextColor="White" Grid.Column="0" Grid.Row="0" Text="Back"
                 Clicked="BackButton_Clicked" />
             <Button x:Name="SendButton" BackgroundColor="#FFD000" TextColor="Black" Grid.Column="1" Grid.Row="0"
                 Clicked="SendButton_Clicked" />
         </Grid>
+        <Grid x:Name="SuccessBlock" ColumnDefinitions="1*, 1*" RowDefinitions="1*, Auto" IsVisible="False">
+            <Image Source="check_mark.png" Grid.Column="0" Grid.Row="0" />
+            <Label Text="Your report was sent successfully" Grid.Column="1" Grid.Row="0" />
+            <Button Clicked="HomeButton_Clicked" Text="Start a new report" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" />
+        </Grid>
+
     </StackLayout>
 </ContentPage>

@@ -58,6 +58,12 @@ namespace VisualMOT
                 SendButton.Text = "Send Email";
             }
         }
+        protected override void OnAppearing()
+        {
+            SendBlock.IsVisible = true;
+            SuccessBlock.IsVisible = false;
+            base.OnAppearing();
+        }
 
         private void CustomerEmailEntry_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -80,6 +86,11 @@ namespace VisualMOT
         {
             await Navigation.PopModalAsync();
         }
+        async void HomeButton_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PopModalAsync();
+            App.Current.MainPage = new NavigationPage(new EntryPage());
+        }
 
         private void SendButton_Clicked(object sender, EventArgs e)
         {
@@ -90,17 +101,17 @@ namespace VisualMOT
             }
             catch (KeyNotFoundException ex)
             {
-                Console.WriteLine("Free purchase");
+                Console.WriteLine("Free report");
+                string price = Device.RuntimePlatform == Device.iOS ? Constants.PriceApple : Constants.PriceGoogle;
+                DisplayAlert("Free report", "Your first report has been sent for free. You will be prompted for payment next time. Each report sent currently costs " + price, "OK");
             }
             if (requiresPurchase.Value)
             {
-                /*
                 if (!Purchase().Result)
                 {
                     DisplayAlert("Purchase error", "Purchase could not be completed. You will not be charged. Please check internet connection and try again", "OK");
                     return;
                 }
-                */
             }
             SfBusyIndicator busyIndicator = new SfBusyIndicator();
             busyIndicator.AnimationType = AnimationTypes.Gear;
@@ -135,6 +146,7 @@ namespace VisualMOT
                     var id = purchase.Id;
                     var token = purchase.PurchaseToken;
                     var state = purchase.State;
+                    InAppPurchase = purchase;
                     return true;
                 }
             }
@@ -162,7 +174,7 @@ namespace VisualMOT
                     if (success)
                     {
                         // Called after we have a successful purchase or later on (must call ConnectAsync() ahead of time):
-                        if (DeviceInfo.Platform == DevicePlatform.Android)
+                        if (DeviceInfo.Platform == DevicePlatform.Android && InAppPurchase != null)
                         {
                             var consumedItem = await CrossInAppBilling.Current.ConsumePurchaseAsync(InAppPurchase.ProductId, InAppPurchase.PurchaseToken);
                             if (consumedItem)
@@ -172,7 +184,8 @@ namespace VisualMOT
                         }
                         CrossToastPopUp.Current.ShowToastSuccess("The MOT report has been successfully sent. Thank you for using Visual MOT");
                         loadingSpinner.IsBusy = false;
-                        await Navigation.PopAsync();
+                        SuccessBlock.IsVisible = true;
+                        SendBlock.IsVisible = false;
                     }
                     else
                     {
@@ -193,6 +206,8 @@ namespace VisualMOT
 
             string fileNamePrefix = MOTHistory.registration + "_" + MOTHistory.LastTest.motTestNumber;
             List<string> imageFiles = new List<string>();
+
+            MOTHistory.Items = MOTHistory.Items.GroupBy(item => item.type).SelectMany(group => group).ToList();
 
             int i = 1;
             foreach (MOTItem item in MOTHistory.Items.Where(item => item.image != null))

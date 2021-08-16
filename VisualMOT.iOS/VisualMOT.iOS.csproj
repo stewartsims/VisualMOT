@@ -187,4 +187,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\VisualMOT.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\check_mark.png" />
+  </ItemGroup>
 </Project>

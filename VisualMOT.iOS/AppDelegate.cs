@@ -4,6 +4,7 @@ using System.Linq;
 
 using Foundation;
 using Syncfusion.ListView.XForms.iOS;
+using Syncfusion.SfBusyIndicator.XForms.iOS;
 using Syncfusion.XForms.iOS.ComboBox;
 using Syncfusion.XForms.iOS.TabView;
 using UIKit;
@@ -29,6 +30,7 @@ namespace VisualMOT.iOS
             SfComboBoxRenderer.Init();
             SfListViewRenderer.Init();
             SfTabViewRenderer.Init();
+            SfBusyIndicatorRenderer.Init();
             LoadApplication(new App());
             return base.FinishedLaunching(app, options);
         }

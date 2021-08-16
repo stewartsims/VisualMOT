@@ -57,6 +57,13 @@ namespace VisualMOT
                         if (!string.IsNullOrEmpty(VehicleMake) && (motHistory.make != VehicleMake))
                         {
                             await App.Current.MainPage.DisplayAlert("Vehicle doesn't match", "A match could not be found for this vehicle registration and make, please check and try again.", "Close");
+                            loadingSpinner.IsBusy = false;
+                            return;
+                        }
+                        if (motHistory.motTests == null || motHistory.motTests.Count == 0)
+                        {
+                            await App.Current.MainPage.DisplayAlert("No MOT recorded", "No MOT history could be found for this vehicle, please check and try again.", "Close");
+                            loadingSpinner.IsBusy = false;
                             return;
                         }
                         motHistory.LastTest = motHistory.motTests[0];
