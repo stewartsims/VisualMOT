@@ -68,7 +68,7 @@ namespace VisualMOT
                         }
                         motHistory.LastTest = motHistory.motTests[0];
                         DateTime lastTestDate = DateTime.ParseExact(motHistory.LastTest.completedDate.Substring(0, 10), "yyyy.MM.dd", CultureInfo.InvariantCulture);
-                        motHistory.LastTestDisplayText = motHistory.LastTest.motTestNumber + " " + lastTestDate.ToString("dd/MM/yyyy");
+                        motHistory.LastTestDisplayText = motHistory.LastTest.motTestNumber + " " + lastTestDate.ToString("dd/MM/yyyy") + " " + motHistory.LastTest.testResult;
                         motHistory.LastTestExpiryDate = lastTestDate.AddYears(1).ToString("dd/MM/yyyy");
                         motHistory.Items = motHistory.LastTest.rfrAndComments;
                         MOTHistoryPage motHistoryPage = new MOTHistoryPage(motHistory);
