@@ -59,7 +59,7 @@
         <Grid x:Name="SendBlock" ColumnDefinitions="1*, 1*" RowDefinitions="1*, Auto">
             <Button x:Name="BackButton" BackgroundColor="#75A0FF" TextColor="White" Grid.Column="0" Grid.Row="0" Text="Back"
                 Clicked="BackButton_Clicked" />
-            <Button x:Name="SendButton" BackgroundColor="#FFD000" TextColor="Black" Grid.Column="1" Grid.Row="0"
+            <Button x:Name="SendButton" BackgroundColor="#FFD000" TextColor="Black" Grid.Column="1" Grid.Row="0" IsEnabled="False"
                 Clicked="SendButton_Clicked" />
         </Grid>
         <Grid x:Name="SuccessBlock" ColumnDefinitions="1*, 1*" RowDefinitions="1*, Auto" IsVisible="False">

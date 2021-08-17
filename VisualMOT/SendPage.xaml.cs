@@ -68,18 +68,27 @@ namespace VisualMOT
         private void CustomerEmailEntry_TextChanged(object sender, TextChangedEventArgs e)
         {
             CustomerEmail = e.NewTextValue;
+            UpdateValidity();
         }
         private void CustomerSMSEntry_TextChanged(object sender, TextChangedEventArgs e)
         {
             CustomerSMS = e.NewTextValue;
+            UpdateValidity();
         }
         private void YourEmailEntry_TextChanged(object sender, TextChangedEventArgs e)
         {
             YourEmail = e.NewTextValue;
+            UpdateValidity();
         }
         private void CommentEntry_TextChanged(object sender, TextChangedEventArgs e)
         {
             Comment = e.NewTextValue;
+            UpdateValidity();
+        }
+
+        private void UpdateValidity()
+        {
+            SendButton.IsEnabled = Tabs.SelectedIndex == 1 ? !string.IsNullOrEmpty(CustomerSMS) : !string.IsNullOrEmpty(CustomerEmail) || !string.IsNullOrEmpty(YourEmail);
         }
 
         async void BackButton_Clicked(object sender, EventArgs e)
