@@ -16,10 +16,48 @@ namespace VisualMOT.Model
 
         public byte[] image { get; set; }
         public string imageFileName { get; set; }
-        public string comment { get; set; }
 
-        public bool HasComment { get; set; }
-        public bool NoComment { get; set; }
+        private string _comment;
+        private bool hasComment;
+        private bool noComment;
+
+        public string comment
+        {
+            get => _comment;
+            set
+            {
+                if (_comment != value)
+                {
+                    _comment = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        public bool HasComment
+        {
+            get => hasComment;
+            set
+            {
+                if (hasComment != value)
+                {
+                    hasComment = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+        public bool NoComment
+        {
+            get => noComment;
+            set
+            {
+                if (noComment != value)
+                {
+                    noComment = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
 
         private ImageSource imageSource = null;
 

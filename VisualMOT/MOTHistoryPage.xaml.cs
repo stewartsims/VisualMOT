@@ -41,6 +41,7 @@ namespace VisualMOT
             InitializeComponent();
             BindingContext = this.MOTHistory;
             ItemsListView.ItemsSource = MOTHistory.Items;
+            this.Refresh();
         }
 
         protected override void OnAppearing()
