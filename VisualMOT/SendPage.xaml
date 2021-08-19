@@ -11,7 +11,7 @@
                     <StackLayout Padding="10" BackgroundColor="#F2EFE6">
                         <Label FontAttributes="Bold" Text="Enter the customer's email address, your email address or both." 
                             HorizontalOptions="Center"
-                            VerticalOptions="CenterAndExpand" />
+                            VerticalOptions="Start" />
                         <StackLayout Padding="10">
                             <Label Text="Customer's email address" 
                                 VerticalOptions="CenterAndExpand"
@@ -22,7 +22,11 @@
                             <Label Text="Your email address" 
                                 VerticalOptions="CenterAndExpand"
                                 HorizontalOptions="Center" />
-                            <Entry Placeholder="youremailaddress@goeshere.com" TextChanged="YourEmailEntry_TextChanged" Margin="10" Keyboard="Email" />
+                            <StackLayout Orientation="Horizontal">
+                                <Entry x:Name="YourEmailEmailEntry" Placeholder="youremail@goeshere.com" TextChanged="YourEmailEntry_TextChanged" Margin="10" Keyboard="Email" HorizontalOptions="StartAndExpand"  />
+                                <Label Text="Save your email" HorizontalOptions="End" VerticalOptions="Center" />
+                                <CheckBox x:Name="SaveYourEmailEmail" HorizontalOptions="End" CheckedChanged="SaveYourEmail_CheckedChanged" IsChecked="false" />
+                            </StackLayout>
                         </StackLayout>
                     </StackLayout>
                 </tabView:SfTabItem.Content>
@@ -43,7 +47,11 @@
                             <Label Text="Your email address" 
                                 VerticalOptions="CenterAndExpand"
                                 HorizontalOptions="Center" />
-                            <Entry Placeholder="youremailaddress@goeshere.com" TextChanged="YourEmailEntry_TextChanged" Margin="10" Keyboard="Email" />
+                            <StackLayout Orientation="Horizontal">
+                                <Entry x:Name="YourEmailSMSEntry" Placeholder="youremail@goeshere.com" TextChanged="YourEmailEntry_TextChanged" Margin="10" Keyboard="Email" HorizontalOptions="StartAndExpand" />
+                                <Label Text="Save your email" VerticalOptions="Center" />
+                                <CheckBox x:Name="SaveYourEmailSMS" HorizontalOptions="End" CheckedChanged="SaveYourEmail_CheckedChanged" IsChecked="false" />
+                            </StackLayout>
                         </StackLayout>
                     </StackLayout>
                 </tabView:SfTabItem.Content>

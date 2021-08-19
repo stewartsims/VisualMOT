@@ -57,6 +57,21 @@ namespace VisualMOT
             {
                 SendButton.Text = "Send Email";
             }
+            try
+            {
+                YourEmail = Application.Current.Properties[Constants.SavedEmailProperty] as string;
+                if (!string.IsNullOrEmpty(YourEmail))
+                {
+                    YourEmailEmailEntry.Text = YourEmail;
+                    YourEmailSMSEntry.Text = YourEmail;
+                    SaveYourEmailSMS.IsChecked = true;
+                    SaveYourEmailEmail.IsChecked = true;
+                }
+            }
+            catch (KeyNotFoundException e)
+            {
+                Console.WriteLine("Your email not yet saved");
+            }
         }
         protected override void OnAppearing()
         {
@@ -103,6 +118,11 @@ namespace VisualMOT
 
         private void SendButton_Clicked(object sender, EventArgs e)
         {
+            if (SaveYourEmailEmail.IsChecked && SaveYourEmailSMS.IsChecked)
+            {
+                Application.Current.Properties[Constants.SavedEmailProperty] = YourEmail;
+                Application.Current.SavePropertiesAsync();
+            }
             bool? requiresPurchase = false;
             try
             {
@@ -362,6 +382,25 @@ namespace VisualMOT
             SendButton.Text = "Send " + e.Name;
             Application.Current.Properties[Constants.SendMethodProperty] = e.Name;
             Application.Current.SavePropertiesAsync();
+        }
+
+        private void SaveYourEmail_CheckedChanged(object sender, CheckedChangedEventArgs e)
+        {
+            CheckBox checkBox = sender as CheckBox;
+            if (checkBox.IsChecked)
+            {
+                SaveYourEmailEmail.IsChecked = true;
+                SaveYourEmailSMS.IsChecked = true;
+                Application.Current.Properties[Constants.SavedEmailProperty] = YourEmail;
+                Application.Current.SavePropertiesAsync();
+            }
+            else
+            {
+                SaveYourEmailEmail.IsChecked = false;
+                SaveYourEmailSMS.IsChecked = false;
+                Application.Current.Properties[Constants.SavedEmailProperty] = null;
+                Application.Current.SavePropertiesAsync();
+            }
         }
     }
 }
