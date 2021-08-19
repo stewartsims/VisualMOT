@@ -29,6 +29,7 @@ namespace VisualMOT
         {
             MOTItem = motItem;
             Text = motItem.text;
+            Comment = motItem.comment;
             this.MOTHistoryPage = motHistoryPage;
             InitializeComponent();
         }

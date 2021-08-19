@@ -41,7 +41,7 @@
                             <Label Grid.Row="0" Grid.Column="0" Text="{Binding text}" />
                             <StackLayout Grid.Row="0" Grid.Column="1">
                                 <visualmot:ClickableImage Grid.Row="0" Grid.Column="1" HeightRequest="125" Source="{Binding ImageSource}" Clicked="{Binding Path=ImageCommand, Source={x:Reference MOTHistoryView}}" ClickParameter="{Binding .}" />
-                                <Label Grid.Row="0" Grid.Column="1" Text="{Binding comment}" IsVisible="{Binding HasComment}" />
+                                <Button Grid.Row="0" Grid.Column="1" BackgroundColor="White" TextColor="Black" BorderWidth="0" Text="{Binding comment}" Clicked="CommentButton_Clicked" CommandParameter="{Binding .}" IsVisible="{Binding HasComment}" />
                                 <Button Grid.Row="0" Grid.Column="1" Text="add comment" Clicked="CommentButton_Clicked" CommandParameter="{Binding .}" IsVisible="{Binding NoComment}" />
                             </StackLayout>
                         </Grid>

@@ -79,14 +79,7 @@ namespace VisualMOT
         {
             Button button = sender as Button;
             MOTItem item = button.CommandParameter as MOTItem;
-            if (item.image != null)
-            {
-
-            }
-            else
-            {
-                Navigation.PushModalAsync(new NavigationPage(new UploadImagePage(item, this)));
-            }
+            Navigation.PushModalAsync(new NavigationPage(new UploadImagePage(item, this)));
         }
 
         public Command ImageCommand
@@ -97,14 +90,19 @@ namespace VisualMOT
                 {
                     ClickableImage image = parameter as ClickableImage;
                     MOTItem item = image.ClickParameter as MOTItem;
-                    if (item.image != null)
-                    {
+                    Navigation.PushModalAsync(new NavigationPage(new UploadImagePage(item, this)));
+                });
+            }
+        }
 
-                    }
-                    else
-                    {
-                        Navigation.PushModalAsync(new NavigationPage(new UploadImagePage(item, this)));
-                    }
+        public Command CommentCommand
+        {
+            get
+            {
+                return new Command(async (parameter) =>
+                {
+                    MOTItem item = parameter as MOTItem;
+                    Navigation.PushModalAsync(new NavigationPage(new AddCommentPage(item, this)));
                 });
             }
         }

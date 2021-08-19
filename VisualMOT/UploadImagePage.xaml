@@ -31,6 +31,8 @@
                 <Label Text="Note - for the best results it is recommended to use photos taken in landscape" FontAttributes="Bold" />
                 <Label></Label>
                 <Label Text="{Binding Path=ImageText, Source={x:Reference UploadImageView}}" FontSize="Large" />
+                <Image x:Name="ImagePreview" IsVisible="false" />
+                <Button x:Name="DeleteImageButton" Clicked="DeleteImage_Clicked" HorizontalOptions="FillAndExpand" BackgroundColor="DarkRed" TextColor="White" Text="Delete image" Margin="3" Padding="10" FontSize="Micro" HeightRequest="40" IsVisible="false" />
             </StackLayout>
         </ScrollView>
     </StackLayout>

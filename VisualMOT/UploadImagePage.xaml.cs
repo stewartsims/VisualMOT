@@ -31,6 +31,12 @@ namespace VisualMOT
             ImageText = motItem.text;
             this.MOTHistoryPage = motHistoryPage;
             InitializeComponent();
+            if (MOTItem.image != null && MOTItem.ImageSource != null)
+            {
+                ImagePreview.Source = MOTItem.ImageSource;
+                ImagePreview.IsVisible = true;
+                DeleteImageButton.IsVisible = true;
+            }
         }
 
         protected override void OnAppearing()
@@ -150,10 +156,10 @@ namespace VisualMOT
                     //}
                     thumbnailBytes = imageData.ToArray();
                     MOTItem.image = thumbnailBytes;
-                    await Navigation.PopModalAsync();
-                    MOTHistoryPage.Refresh();
                 }
             }
+            await Navigation.PopModalAsync();
+            MOTHistoryPage.Refresh();
         }
 
         public static SKBitmap Rotate(SKBitmap bitmap, double angle)
@@ -181,6 +187,16 @@ namespace VisualMOT
         async void Cancel_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopModalAsync();
+        }
+
+        private async void DeleteImage_Clicked(object sender, EventArgs e)
+        {
+            MOTItem.ImageSource = null;
+            MOTItem.image = null;
+            MOTItem.imageFileName = null;
+            ImageText = MOTItem.text;
+            ImagePreview.IsVisible = false;
+            OnPropertyChanged("ImageText");
         }
     }
 }
