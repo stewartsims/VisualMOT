@@ -121,32 +121,44 @@ namespace VisualMOT
             SfBusyIndicator busyIndicator = new SfBusyIndicator();
             busyIndicator.AnimationType = AnimationTypes.Gear;
             Container.Children.Add(busyIndicator);
-            if (SaveYourEmailEmail.IsChecked && SaveYourEmailSMS.IsChecked)
+            CheckPurchaseAndSendCommand.Execute(busyIndicator);
+        }
+
+        public ICommand CheckPurchaseAndSendCommand
+        {
+            get
             {
-                Application.Current.Properties[Constants.SavedEmailProperty] = YourEmail;
-                Application.Current.SavePropertiesAsync();
-            }
-            bool? requiresPurchase = false;
-            try
-            {
-                requiresPurchase = Application.Current.Properties[Constants.RequiresPurchaseFlag] as bool?;
-            }
-            catch (KeyNotFoundException ex)
-            {
-                Console.WriteLine("Free report");
-                string price = Device.RuntimePlatform == Device.iOS ? Constants.PriceApple : Constants.PriceGoogle;
-                DisplayAlert("Free report", "Your first report has been sent for free. You will be prompted for payment next time. Each report sent currently costs " + price, "OK");
-            }
-            if (requiresPurchase.Value)
-            {
-                if (!Purchase().Result)
+                return new Command(async (parameter) =>
                 {
-                    DisplayAlert("Purchase error", "Purchase could not be completed. You will not be charged. Please check internet connection and try again", "OK");
-                    busyIndicator.IsBusy = false;
-                    return;
-                }
+                    SfBusyIndicator loadingSpinner = (SfBusyIndicator)parameter;
+                    if (SaveYourEmailEmail.IsChecked && SaveYourEmailSMS.IsChecked)
+                    {
+                        Application.Current.Properties[Constants.SavedEmailProperty] = YourEmail;
+                        await Application.Current.SavePropertiesAsync();
+                    }
+                    bool? requiresPurchase = false;
+                    try
+                    {
+                        requiresPurchase = Application.Current.Properties[Constants.RequiresPurchaseFlag] as bool?;
+                    }
+                    catch (KeyNotFoundException ex)
+                    {
+                        Console.WriteLine("Free report");
+                        string price = Device.RuntimePlatform == Device.iOS ? Constants.PriceApple : Constants.PriceGoogle;
+                        await DisplayAlert("Free report", "Your first report will be sent for free. You will be prompted for payment next time. Each report sent currently costs " + price, "OK");
+                    }
+                    if (requiresPurchase.Value)
+                    {
+                        if (!Purchase().Result)
+                        {
+                            loadingSpinner.IsBusy = false;
+                            await DisplayAlert ("Purchase error", "Purchase could not be completed. You will not be charged. Please check internet connection and try again", "OK");
+                            return;
+                        }
+                    }
+                    SendCommand.Execute(loadingSpinner);
+                });
             }
-            SendCommand.Execute(busyIndicator);
         }
 
         public async Task<bool> Purchase()
