@@ -1,5 +1,4 @@
-﻿using Plugin.Toast;
-using SkiaSharp;
+﻿using SkiaSharp;
 using Syncfusion.SfBusyIndicator.XForms;
 using System;
 using System.Collections.Generic;

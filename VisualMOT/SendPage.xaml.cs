@@ -3,7 +3,6 @@ using MailKit.Security;
 using MimeKit;
 using Org.Reddragonit.Stringtemplate;
 using Plugin.InAppBilling;
-using Plugin.Toast;
 using Syncfusion.SfBusyIndicator.XForms;
 using System;
 using System.Collections.Generic;
@@ -19,6 +18,7 @@ using VisualMOT.Model;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Xamarin.CommunityToolkit.Extensions;
 
 namespace VisualMOT
 {
@@ -118,6 +118,9 @@ namespace VisualMOT
 
         private void SendButton_Clicked(object sender, EventArgs e)
         {
+            SfBusyIndicator busyIndicator = new SfBusyIndicator();
+            busyIndicator.AnimationType = AnimationTypes.Gear;
+            Container.Children.Add(busyIndicator);
             if (SaveYourEmailEmail.IsChecked && SaveYourEmailSMS.IsChecked)
             {
                 Application.Current.Properties[Constants.SavedEmailProperty] = YourEmail;
@@ -139,12 +142,10 @@ namespace VisualMOT
                 if (!Purchase().Result)
                 {
                     DisplayAlert("Purchase error", "Purchase could not be completed. You will not be charged. Please check internet connection and try again", "OK");
+                    busyIndicator.IsBusy = false;
                     return;
                 }
             }
-            SfBusyIndicator busyIndicator = new SfBusyIndicator();
-            busyIndicator.AnimationType = AnimationTypes.Gear;
-            Container.Children.Add(busyIndicator);
             SendCommand.Execute(busyIndicator);
         }
 
@@ -211,10 +212,10 @@ namespace VisualMOT
                                 // Item has been consumed
                             }
                         }
-                        CrossToastPopUp.Current.ShowToastSuccess("The MOT report has been successfully sent. Thank you for using Visual MOT");
                         loadingSpinner.IsBusy = false;
                         SuccessBlock.IsVisible = true;
                         SendBlock.IsVisible = false;
+                        await this.DisplayToastAsync(ToastHelper.GetSuccessToastOptions("The MOT report has been successfully sent. Thank you for using Visual MOT"));
                     }
                     else
                     {

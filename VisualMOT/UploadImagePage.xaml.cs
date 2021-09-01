@@ -1,5 +1,4 @@
-﻿using Plugin.Toast;
-using SkiaSharp;
+﻿using SkiaSharp;
 using Syncfusion.SfBusyIndicator.XForms;
 using System;
 using System.Collections.Generic;
@@ -13,6 +12,7 @@ using VisualMOT.Model;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Xamarin.CommunityToolkit.Extensions;
 
 namespace VisualMOT
 {
@@ -101,7 +101,8 @@ namespace VisualMOT
         {
             if (!ChosenImageValid())
             {
-                CrossToastPopUp.Current.ShowToastMessage("Chosen image is too large, please select or take a new image (less than 10Mb in size)");
+                await this.DisplayToastAsync(ToastHelper.GetInfoToastOptions("Chosen image is too large, please select or take a new image (less than 10Mb in size)"));
+                return;
             }
 
             SfBusyIndicator sfBusyIndicator = new SfBusyIndicator();

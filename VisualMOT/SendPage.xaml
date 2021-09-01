@@ -3,74 +3,83 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:tabView="clr-namespace:Syncfusion.XForms.TabView;assembly=Syncfusion.SfTabView.XForms"
              x:Class="VisualMOT.SendPage">
-    
     <StackLayout x:Name="Container" Padding="10">
-        <tabView:SfTabView x:Name="Tabs" BackgroundColor="#FFD000" SelectionChanged="SfTabView_SelectionChanged">
-            <tabView:SfTabItem Title="Email">
-                <tabView:SfTabItem.Content>
-                    <StackLayout Padding="10" BackgroundColor="#F2EFE6">
-                        <Label FontAttributes="Bold" Text="Enter the customer's email address, your email address or both." 
-                            HorizontalOptions="Center"
-                            VerticalOptions="Start" />
-                        <StackLayout Padding="10">
-                            <Label Text="Customer's email address" 
-                                VerticalOptions="CenterAndExpand"
-                                HorizontalOptions="Center" />
-                            <Entry Placeholder="iamacustomer@thisismyemail.com" TextChanged="CustomerEmailEntry_TextChanged" Margin="10" Keyboard="Email" />
-                        </StackLayout>
-                        <StackLayout Padding="10">
-                            <Label Text="Your email address" 
-                                VerticalOptions="CenterAndExpand"
-                                HorizontalOptions="Center" />
-                            <StackLayout Orientation="Horizontal">
-                                <Entry x:Name="YourEmailEmailEntry" Placeholder="youremail@goeshere.com" TextChanged="YourEmailEntry_TextChanged" Margin="10" Keyboard="Email" HorizontalOptions="StartAndExpand"  />
-                                <Label Text="Save your email" HorizontalOptions="End" VerticalOptions="Center" />
-                                <CheckBox x:Name="SaveYourEmailEmail" HorizontalOptions="End" CheckedChanged="SaveYourEmail_CheckedChanged" IsChecked="false" />
+        
+        <ScrollView>
+            <StackLayout>
+                <tabView:SfTabView x:Name="Tabs" BackgroundColor="#FFD000" SelectionChanged="SfTabView_SelectionChanged">
+                    <tabView:SfTabItem Title="Email">
+                        <tabView:SfTabItem.Content>
+                            <StackLayout Padding="10" BackgroundColor="#F2EFE6">
+                                <Label FontAttributes="Bold" Text="Enter the customer's email address, your email address or both." 
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Start" />
+                                <StackLayout Padding="10">
+                                    <Label Text="Customer's email address" 
+                                            VerticalOptions="CenterAndExpand"
+                                            HorizontalOptions="Center" />
+                                    <Entry Placeholder="iamacustomer@thisismyemail.com" TextChanged="CustomerEmailEntry_TextChanged" Margin="10" Keyboard="Email" />
+                                </StackLayout>
+                                <StackLayout Padding="10">
+                                    <Label Text="Your email address" 
+                                            VerticalOptions="CenterAndExpand"
+                                            HorizontalOptions="Center" />
+                                    <StackLayout Orientation="Horizontal">
+                                        <Entry x:Name="YourEmailEmailEntry" Placeholder="youremail@goeshere.com" TextChanged="YourEmailEntry_TextChanged" Margin="10" Keyboard="Email" HorizontalOptions="FillAndExpand"  />
+                                        <StackLayout Orientation="Vertical" HorizontalOptions="End">
+                                            <Label Text="Save your email" VerticalOptions="Start" />
+                                            <CheckBox x:Name="SaveYourEmailEmail" CheckedChanged="SaveYourEmail_CheckedChanged" IsChecked="false" VerticalOptions="End" />
+                                        </StackLayout>
+                                    </StackLayout>
+                                </StackLayout>
                             </StackLayout>
-                        </StackLayout>
-                    </StackLayout>
-                </tabView:SfTabItem.Content>
-            </tabView:SfTabItem>
-            <tabView:SfTabItem Title="SMS">
-                <tabView:SfTabItem.Content>
-                    <StackLayout Padding="10" BackgroundColor="#F2EFE6">
-                        <Label FontAttributes="Bold" Text="Enter the customer's mobile number. You can also enter your email address to receive a copy by email." 
-                            HorizontalOptions="Center"
-                            VerticalOptions="CenterAndExpand" />
-                        <StackLayout Padding="10">
-                            <Label Text="Customer's mobile number" 
-                                VerticalOptions="CenterAndExpand"
-                                HorizontalOptions="Center" />
-                            <Entry Placeholder="071234567890" TextChanged="CustomerSMSEntry_TextChanged" Margin="10" Keyboard="Numeric" />
-                        </StackLayout>
-                        <StackLayout Padding="10">
-                            <Label Text="Your email address" 
-                                VerticalOptions="CenterAndExpand"
-                                HorizontalOptions="Center" />
-                            <StackLayout Orientation="Horizontal">
-                                <Entry x:Name="YourEmailSMSEntry" Placeholder="youremail@goeshere.com" TextChanged="YourEmailEntry_TextChanged" Margin="10" Keyboard="Email" HorizontalOptions="StartAndExpand" />
-                                <Label Text="Save your email" VerticalOptions="Center" />
-                                <CheckBox x:Name="SaveYourEmailSMS" HorizontalOptions="End" CheckedChanged="SaveYourEmail_CheckedChanged" IsChecked="false" />
+                        </tabView:SfTabItem.Content>
+                    </tabView:SfTabItem>
+                    <tabView:SfTabItem Title="SMS">
+                        <tabView:SfTabItem.Content>
+                            <StackLayout Padding="10" BackgroundColor="#F2EFE6">
+                                <Label FontAttributes="Bold" Text="Enter the customer's mobile number. You can also enter your email address to receive a copy by email." 
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="CenterAndExpand" />
+                                <StackLayout Padding="10">
+                                    <Label Text="Customer's mobile number" 
+                                            VerticalOptions="CenterAndExpand"
+                                            HorizontalOptions="Center" />
+                                    <Entry Placeholder="071234567890" TextChanged="CustomerSMSEntry_TextChanged" Margin="10" Keyboard="Numeric" />
+                                </StackLayout>
+                                <StackLayout Padding="10">
+                                    <Label Text="Your email address" 
+                                            VerticalOptions="CenterAndExpand"
+                                            HorizontalOptions="Center" />
+                                    <StackLayout Orientation="Horizontal">
+                                        <Entry x:Name="YourEmailSMSEntry" Placeholder="youremail@goeshere.com" TextChanged="YourEmailEntry_TextChanged" Margin="10" Keyboard="Email" HorizontalOptions="FillAndExpand" />
+                                        <StackLayout Orientation="Vertical" HorizontalOptions="End">
+                                            <Label Text="Save your email" VerticalOptions="Start" />
+                                            <CheckBox x:Name="SaveYourEmailSMS" CheckedChanged="SaveYourEmail_CheckedChanged" IsChecked="false" VerticalOptions="End" />
+                                        </StackLayout>
+                                    </StackLayout>
+                                </StackLayout>
                             </StackLayout>
-                        </StackLayout>
-                    </StackLayout>
-                </tabView:SfTabItem.Content>
-            </tabView:SfTabItem>
-        </tabView:SfTabView>
+                        </tabView:SfTabItem.Content>
+                    </tabView:SfTabItem>
+                </tabView:SfTabView>
 
-        <StackLayout Padding="10">
-            <Label Text="Add an optional comment - for example &quot;Ready to collect&quot; or &quot;Please call on 01234567890 to discuss&quot;"
-                VerticalOptions="CenterAndExpand"
-                HorizontalOptions="Center" />
-            <Entry Placeholder="" TextChanged="CommentEntry_TextChanged" Margin="10" />
-        </StackLayout>
-        <Grid x:Name="SendBlock" ColumnDefinitions="1*, 1*" RowDefinitions="1*, Auto">
-            <Button x:Name="BackButton" BackgroundColor="#75A0FF" TextColor="White" Grid.Column="0" Grid.Row="0" Text="Back"
+                <StackLayout Padding="10">
+                    <Label Text="Add an optional comment - for example &quot;Ready to collect&quot; or &quot;Please call on 01234567890 to discuss&quot;"
+                                VerticalOptions="CenterAndExpand"
+                                HorizontalOptions="Center" />
+                    <Entry Placeholder="" TextChanged="CommentEntry_TextChanged" Margin="10" />
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+
+        <Grid x:Name="SendBlock" ColumnDefinitions="1*, 1*" RowDefinitions="50, Auto" VerticalOptions="CenterAndExpand">
+            <Button x:Name="BackButton" BackgroundColor="#75A0FF" TextColor="White" Grid.Column="0" Grid.Row="0" Text="Back" HeightRequest="50"
                 Clicked="BackButton_Clicked" />
-            <Button x:Name="SendButton" BackgroundColor="#FFD000" TextColor="Black" Grid.Column="1" Grid.Row="0" IsEnabled="False"
+            <Button x:Name="SendButton" BackgroundColor="#FFD000" TextColor="Black" Grid.Column="1" Grid.Row="0" IsEnabled="False" HeightRequest="50"
                 Clicked="SendButton_Clicked" />
         </Grid>
-        <Grid x:Name="SuccessBlock" ColumnDefinitions="1*, 1*" RowDefinitions="1*, Auto" IsVisible="False">
+        <Grid x:Name="SuccessBlock" ColumnDefinitions="1*, 1*" RowDefinitions="1*, Auto" IsVisible="False" VerticalOptions="CenterAndExpand">
             <Image Source="check_mark.png" Grid.Column="0" Grid.Row="0" />
             <Label Text="Your report was sent successfully" Grid.Column="1" Grid.Row="0" />
             <Button Clicked="HomeButton_Clicked" Text="Start a new report" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" />

@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using Plugin.Toast;
 using Syncfusion.SfBusyIndicator.XForms;
 using System;
 using System.Collections.Generic;
@@ -14,6 +13,7 @@ using System.Web;
 using System.Windows.Input;
 using VisualMOT.Model;
 using Xamarin.Forms;
+using Xamarin.CommunityToolkit.Extensions;
 
 namespace VisualMOT
 {
@@ -45,25 +45,26 @@ namespace VisualMOT
             {
                 return new Command(async (parameter) =>
                 {
-                    if (VehicleRegistration == null)
+                    SfBusyIndicator loadingSpinner = (SfBusyIndicator)parameter;
+                    if (string.IsNullOrEmpty(VehicleRegistration))
                     {
-                        CrossToastPopUp.Current.ShowToastWarning("Please enter a valid vehicle registration to continue");
+                        loadingSpinner.IsBusy = false;
+                        await this.DisplayToastAsync(ToastHelper.GetWarningToastOptions("Please enter a valid vehicle registration to continue"));
                         return;
                     }
-                    SfBusyIndicator loadingSpinner = (SfBusyIndicator)parameter;
                     try
                     {
                         MOTHistory motHistory = await MOTHistoryTask();
                         if (!string.IsNullOrEmpty(VehicleMake) && (motHistory.make != VehicleMake))
                         {
-                            await App.Current.MainPage.DisplayAlert("Vehicle doesn't match", "A match could not be found for this vehicle registration and make, please check and try again.", "Close");
                             loadingSpinner.IsBusy = false;
+                            await App.Current.MainPage.DisplayAlert("Vehicle doesn't match", "A match could not be found for this vehicle registration and make, please check and try again.", "Close");
                             return;
                         }
                         if (motHistory.motTests == null || motHistory.motTests.Count == 0)
                         {
-                            await App.Current.MainPage.DisplayAlert("No MOT recorded", "No MOT history could be found for this vehicle, please check and try again.", "Close");
                             loadingSpinner.IsBusy = false;
+                            await App.Current.MainPage.DisplayAlert("No MOT recorded", "No MOT history could be found for this vehicle, please check and try again.", "Close");
                             return;
                         }
                         motHistory.LastTest = motHistory.motTests[0];
@@ -77,8 +78,8 @@ namespace VisualMOT
                     }
                     catch (Exception e)
                     {
-                        await App.Current.MainPage.DisplayAlert("Error", "An error occured: \n\n" + e.Message, "Close");
                         loadingSpinner.IsBusy = false;
+                        await App.Current.MainPage.DisplayAlert("Error", "An error occured: \n\n" + e.Message, "Close");
                         return;
                     }
                 });
