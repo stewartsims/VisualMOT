@@ -163,11 +163,12 @@ namespace VisualMOT
 
         public async Task<bool> Purchase()
         {
+            var billing = CrossInAppBilling.Current;
             try
             {
                 var productId = SendButton.Text == "Send Email" ? Constants.EmailBillingProductId : Constants.SMSBillingProductId;
 
-                var connected = await CrossInAppBilling.Current.ConnectAsync();
+                var connected = await billing.ConnectAsync();
 
                 if (!connected)
                 {
@@ -176,7 +177,7 @@ namespace VisualMOT
                 }
 
                 //try to purchase item
-                var purchase = await CrossInAppBilling.Current.PurchaseAsync(productId, ItemType.InAppPurchase);
+                var purchase = await billing.PurchaseAsync(productId, ItemType.InAppPurchase);
                 if (purchase == null)
                 {
                     //Not purchased, alert the user
@@ -200,7 +201,7 @@ namespace VisualMOT
             finally
             {
                 //Disconnect, it is okay if we never connected
-                await CrossInAppBilling.Current.DisconnectAsync();
+                await billing.DisconnectAsync();
             }
         }
 
@@ -218,10 +219,23 @@ namespace VisualMOT
                         // Called after we have a successful purchase or later on (must call ConnectAsync() ahead of time):
                         if (DeviceInfo.Platform == DevicePlatform.Android && InAppPurchase != null)
                         {
-                            var consumedItem = await CrossInAppBilling.Current.ConsumePurchaseAsync(InAppPurchase.ProductId, InAppPurchase.PurchaseToken);
-                            if (consumedItem)
+                            var billing = CrossInAppBilling.Current;
+                            try
                             {
-                                // Item has been consumed
+                                var connected = await billing.ConnectAsync();
+                                var consumedItem = await billing.ConsumePurchaseAsync(InAppPurchase.ProductId, InAppPurchase.PurchaseToken);
+                                if (consumedItem)
+                                {
+                                    // Item has been consumed
+                                }
+                            }
+                            catch (Exception e)
+                            {
+                                Console.WriteLine(e);
+                            }
+                            finally
+                            {
+                                await billing.DisconnectAsync();
                             }
                         }
                         loadingSpinner.IsBusy = false;
