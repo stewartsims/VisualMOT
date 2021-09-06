@@ -2516,11 +2516,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\stewa\\Documents\\Projects\\VisualMOT\\VisualMOT.iOS\\VisualMOT.iOS.csproj",
+      "projectUniqueName": "C:\\Users\\stewa\\Documents\\Files\\Backups\\project\\VisualMOT\\VisualMOT.iOS\\VisualMOT.iOS.csproj",
       "projectName": "VisualMOT.iOS",
-      "projectPath": "C:\\Users\\stewa\\Documents\\Projects\\VisualMOT\\VisualMOT.iOS\\VisualMOT.iOS.csproj",
+      "projectPath": "C:\\Users\\stewa\\Documents\\Files\\Backups\\project\\VisualMOT\\VisualMOT.iOS\\VisualMOT.iOS.csproj",
       "packagesPath": "C:\\Users\\stewa\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\stewa\\Documents\\Projects\\VisualMOT\\VisualMOT.iOS\\obj\\",
+      "outputPath": "C:\\Users\\stewa\\Documents\\Files\\Backups\\project\\VisualMOT\\VisualMOT.iOS\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
@@ -2543,8 +2543,8 @@
       "frameworks": {
         "xamarinios10": {
           "projectReferences": {
-            "C:\\Users\\stewa\\Documents\\Projects\\VisualMOT\\VisualMOT\\VisualMOT.csproj": {
-              "projectPath": "C:\\Users\\stewa\\Documents\\Projects\\VisualMOT\\VisualMOT\\VisualMOT.csproj"
+            "C:\\Users\\stewa\\Documents\\Files\\Backups\\project\\VisualMOT\\VisualMOT\\VisualMOT.csproj": {
+              "projectPath": "C:\\Users\\stewa\\Documents\\Files\\Backups\\project\\VisualMOT\\VisualMOT\\VisualMOT.csproj"
             }
           }
         }

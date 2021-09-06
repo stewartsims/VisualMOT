@@ -5147,11 +5147,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\stewa\\Documents\\Projects\\VisualMOT\\VisualMOT\\VisualMOT.csproj",
+      "projectUniqueName": "C:\\Users\\stewa\\Documents\\Files\\Backups\\project\\VisualMOT\\VisualMOT\\VisualMOT.csproj",
       "projectName": "VisualMOT",
-      "projectPath": "C:\\Users\\stewa\\Documents\\Projects\\VisualMOT\\VisualMOT\\VisualMOT.csproj",
+      "projectPath": "C:\\Users\\stewa\\Documents\\Files\\Backups\\project\\VisualMOT\\VisualMOT\\VisualMOT.csproj",
       "packagesPath": "C:\\Users\\stewa\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\stewa\\Documents\\Projects\\VisualMOT\\VisualMOT\\obj\\",
+      "outputPath": "C:\\Users\\stewa\\Documents\\Files\\Backups\\project\\VisualMOT\\VisualMOT\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

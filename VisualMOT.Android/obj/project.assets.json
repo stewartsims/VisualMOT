@@ -3151,11 +3151,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\stewa\\Documents\\Projects\\VisualMOT\\VisualMOT.Android\\VisualMOT.Android.csproj",
+      "projectUniqueName": "C:\\Users\\stewa\\Documents\\Files\\Backups\\project\\VisualMOT\\VisualMOT.Android\\VisualMOT.Android.csproj",
       "projectName": "VisualMOT.Android",
-      "projectPath": "C:\\Users\\stewa\\Documents\\Projects\\VisualMOT\\VisualMOT.Android\\VisualMOT.Android.csproj",
+      "projectPath": "C:\\Users\\stewa\\Documents\\Files\\Backups\\project\\VisualMOT\\VisualMOT.Android\\VisualMOT.Android.csproj",
       "packagesPath": "C:\\Users\\stewa\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\stewa\\Documents\\Projects\\VisualMOT\\VisualMOT.Android\\obj\\",
+      "outputPath": "C:\\Users\\stewa\\Documents\\Files\\Backups\\project\\VisualMOT\\VisualMOT.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
@@ -3178,8 +3178,8 @@
       "frameworks": {
         "monoandroid10.0": {
           "projectReferences": {
-            "C:\\Users\\stewa\\Documents\\Projects\\VisualMOT\\VisualMOT\\VisualMOT.csproj": {
-              "projectPath": "C:\\Users\\stewa\\Documents\\Projects\\VisualMOT\\VisualMOT\\VisualMOT.csproj"
+            "C:\\Users\\stewa\\Documents\\Files\\Backups\\project\\VisualMOT\\VisualMOT\\VisualMOT.csproj": {
+              "projectPath": "C:\\Users\\stewa\\Documents\\Files\\Backups\\project\\VisualMOT\\VisualMOT\\VisualMOT.csproj"
             }
           }
         }
