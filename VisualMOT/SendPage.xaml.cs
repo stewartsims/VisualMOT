@@ -116,8 +116,28 @@ namespace VisualMOT
             App.Current.MainPage = new NavigationPage(new EntryPage());
         }
 
-        private void SendButton_Clicked(object sender, EventArgs e)
+        private async void SendButton_Clicked(object sender, EventArgs e)
         {
+            bool? requiresPurchase = false;
+            try
+            {
+                requiresPurchase = Application.Current.Properties[Constants.RequiresPurchaseFlag] as bool?;
+            }
+            catch (KeyNotFoundException ex)
+            {
+                Console.WriteLine("Free report");
+                string price = Device.RuntimePlatform == Device.iOS ? Constants.PriceApple : Constants.PriceGoogle;
+                await DisplayAlert("Free report", "Your first report will be sent for free. You will be prompted for payment next time. Each report sent currently costs " + price + " +VAT", "OK");
+            }
+            if (requiresPurchase.Value)
+            {
+                var result = await Purchase();
+                if (!result)
+                {
+                    await DisplayAlert("Purchase error", "Purchase could not be completed. You will not be charged. Please check internet connection and try again", "OK");
+                    return;
+                }
+            }
             SfBusyIndicator busyIndicator = new SfBusyIndicator();
             busyIndicator.AnimationType = AnimationTypes.Gear;
             Container.Children.Add(busyIndicator);
@@ -136,26 +156,7 @@ namespace VisualMOT
                         Application.Current.Properties[Constants.SavedEmailProperty] = YourEmail;
                         await Application.Current.SavePropertiesAsync();
                     }
-                    bool? requiresPurchase = false;
-                    try
-                    {
-                        requiresPurchase = Application.Current.Properties[Constants.RequiresPurchaseFlag] as bool?;
-                    }
-                    catch (KeyNotFoundException ex)
-                    {
-                        Console.WriteLine("Free report");
-                        string price = Device.RuntimePlatform == Device.iOS ? Constants.PriceApple : Constants.PriceGoogle;
-                        await DisplayAlert("Free report", "Your first report will be sent for free. You will be prompted for payment next time. Each report sent currently costs " + price, "OK");
-                    }
-                    if (requiresPurchase.Value)
-                    {
-                        if (!Purchase().Result)
-                        {
-                            loadingSpinner.IsBusy = false;
-                            await DisplayAlert ("Purchase error", "Purchase could not be completed. You will not be charged. Please check internet connection and try again", "OK");
-                            return;
-                        }
-                    }
+                    loadingSpinner.IsBusy = false;
                     SendCommand.Execute(loadingSpinner);
                 });
             }
@@ -196,6 +197,7 @@ namespace VisualMOT
             catch (Exception ex)
             {
                 //Something bad has occurred, alert user
+                Console.WriteLine(ex);
                 return false;
             }
             finally
