@@ -68,7 +68,7 @@
                     <Label Text="Add an optional comment - for example &quot;Ready to collect&quot; or &quot;Please call on 01234567890 to discuss&quot;"
                                 VerticalOptions="CenterAndExpand"
                                 HorizontalOptions="Center" />
-                    <Entry Placeholder="" TextChanged="CommentEntry_TextChanged" Margin="10" />
+                    <Entry Placeholder="" TextChanged="CommentEntry_TextChanged" Margin="10" MaxLength="256" />
                 </StackLayout>
             </StackLayout>
         </ScrollView>

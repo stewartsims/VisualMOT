@@ -27,7 +27,7 @@
                 <Label Text="Add a comment - for example: &quot;Cost to repair: £149&quot;" FontAttributes="Bold" />
                 <Label></Label>
                 <Label Text="{Binding Path=Text, Source={x:Reference AddCommentView}}" FontSize="Large" />
-                <Entry Text="{Binding Path=Comment, Source={x:Reference AddCommentView}}" FontSize="Large" />
+                <Entry Text="{Binding Path=Comment, Source={x:Reference AddCommentView}}" FontSize="Large" MaxLength="256" />
             </StackLayout>
         </ScrollView>
     </StackLayout>
