@@ -22,6 +22,7 @@ namespace VisualMOT
         public MOTItem MOTItem { get; set; }
         public FileResult ChosenImage { get; set; }
         public string ImageText { get; set; }
+        public bool PickedImage { get; set; }
 
         private MOTHistoryPage MOTHistoryPage { get; set; }
 
@@ -60,6 +61,7 @@ namespace VisualMOT
             {
                 ImageText = "Image attached: " + ChosenImage.FullPath;
                 OnPropertyChanged("ImageText");
+                PickedImage = true;
             }
         }
 
@@ -86,6 +88,7 @@ namespace VisualMOT
             {
                 ImageText += "\n\n[ new photo attached ]";
                 OnPropertyChanged("ImageText");
+                PickedImage = false;
             }
         }
 
@@ -146,15 +149,15 @@ namespace VisualMOT
                     int height = (int)Math.Round(image.Height * percentageReduction);
                     SKBitmap scaledBitmap = image.Resize(new SKImageInfo(width, height), SKFilterQuality.High);
                     SKData imageData;
-                    /*if (Device.RuntimePlatform == Device.iOS)
+                    if (PickedImage && Device.RuntimePlatform == Device.iOS)
                     {
                         SKBitmap rotatedBitmap = Rotate(scaledBitmap, 180);
                         imageData = rotatedBitmap.Encode(SKEncodedImageFormat.Png, 100);
                     }
                     else
-                    {*/
+                    {
                         imageData = scaledBitmap.Encode(SKEncodedImageFormat.Png, 100);
-                    //}
+                    }
                     thumbnailBytes = imageData.ToArray();
                     MOTItem.image = thumbnailBytes;
                 }

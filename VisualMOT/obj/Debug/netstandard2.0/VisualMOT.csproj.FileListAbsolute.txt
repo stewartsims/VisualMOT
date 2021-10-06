@@ -28,8 +28,6 @@ C:\Users\stewa\Documents\Files\Backups\project\VisualMOT\VisualMOT\bin\Debug\net
 C:\Users\stewa\Documents\Files\Backups\project\VisualMOT\VisualMOT\bin\Debug\netstandard2.0\VisualMOT.dll
 C:\Users\stewa\Documents\Files\Backups\project\VisualMOT\VisualMOT\bin\Debug\netstandard2.0\ref\VisualMOT.dll
 C:\Users\stewa\Documents\Files\Backups\project\VisualMOT\VisualMOT\bin\Debug\netstandard2.0\VisualMOT.pdb
-C:\Users\stewa\Documents\Files\Backups\project\VisualMOT\VisualMOT\obj\Debug\netstandard2.0\VisualMOT.csproj.AssemblyReference.cache
-C:\Users\stewa\Documents\Files\Backups\project\VisualMOT\VisualMOT\obj\Debug\netstandard2.0\VisualMOT.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\stewa\Documents\Files\Backups\project\VisualMOT\VisualMOT\obj\Debug\netstandard2.0\AddCommentPage.xaml.g.cs
 C:\Users\stewa\Documents\Files\Backups\project\VisualMOT\VisualMOT\obj\Debug\netstandard2.0\App.xaml.g.cs
 C:\Users\stewa\Documents\Files\Backups\project\VisualMOT\VisualMOT\obj\Debug\netstandard2.0\EntryPage.xaml.g.cs
@@ -43,3 +41,5 @@ C:\Users\stewa\Documents\Files\Backups\project\VisualMOT\VisualMOT\obj\Debug\net
 C:\Users\stewa\Documents\Files\Backups\project\VisualMOT\VisualMOT\obj\Debug\netstandard2.0\VisualMOT.dll
 C:\Users\stewa\Documents\Files\Backups\project\VisualMOT\VisualMOT\obj\Debug\netstandard2.0\ref\VisualMOT.dll
 C:\Users\stewa\Documents\Files\Backups\project\VisualMOT\VisualMOT\obj\Debug\netstandard2.0\VisualMOT.pdb
+C:\Users\stewa\Documents\Files\Backups\project\VisualMOT\VisualMOT\obj\Debug\netstandard2.0\VisualMOT.csproj.AssemblyReference.cache
+C:\Users\stewa\Documents\Files\Backups\project\VisualMOT\VisualMOT\obj\Debug\netstandard2.0\VisualMOT.GeneratedMSBuildEditorConfig.editorconfig
