@@ -148,16 +148,7 @@ namespace VisualMOT
                     int width = (int)Math.Round(image.Width * percentageReduction);
                     int height = (int)Math.Round(image.Height * percentageReduction);
                     SKBitmap scaledBitmap = image.Resize(new SKImageInfo(width, height), SKFilterQuality.High);
-                    SKData imageData;
-                    if (PickedImage && Device.RuntimePlatform == Device.iOS)
-                    {
-                        SKBitmap rotatedBitmap = Rotate(scaledBitmap, 180);
-                        imageData = rotatedBitmap.Encode(SKEncodedImageFormat.Png, 100);
-                    }
-                    else
-                    {
-                        imageData = scaledBitmap.Encode(SKEncodedImageFormat.Png, 100);
-                    }
+                    SKData imageData = scaledBitmap.Encode(SKEncodedImageFormat.Png, 100);
                     thumbnailBytes = imageData.ToArray();
                     MOTItem.image = thumbnailBytes;
                 }

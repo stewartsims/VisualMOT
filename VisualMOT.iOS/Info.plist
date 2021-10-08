@@ -33,7 +33,7 @@
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/AppIcon.appiconset</string>
 	<key>CFBundleShortVersionString</key>
-	<string>0.95</string>
+	<string>0.96</string>
 	<key>NSCameraUsageDescription</key>
 	<string>This app needs access to the camera to take photos (to attach to the report).</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
