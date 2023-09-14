@@ -7,4 +7,4 @@ All the configuration e.g. API keys is under `VisualMOT/Constants.cs`
 For more information please see:
 https://ydrive.substack.com/p/visual-mot-an-app-for-mot-testers
 
-Check LICENCE.MD for licencing info.
+Check `LICENCE.MD` for licencing info.
