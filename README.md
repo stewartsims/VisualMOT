@@ -6,6 +6,8 @@ This is a Xamarin Forms (iOS and Android) app that uses the DVSA MOT History API
 
 All the configuration e.g. API keys is under `VisualMOT/Constants.cs`
 
+To get the basic functionality in the app working, sign up for a [DVSA API Key](https://dvsa.github.io/mot-history-api-documentation/) and enter that into the `Constants.cs` file. To send a report you will need to also enter the credentials for an SMTP email account (see all constants starting 'Mail...').  
+
 For more information please see:
 https://ydrive.substack.com/p/visual-mot-an-app-for-mot-testers
 
